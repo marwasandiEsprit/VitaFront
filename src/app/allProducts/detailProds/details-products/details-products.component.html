@@ -1,0 +1,120 @@
+<div class="ad-bar">
+  <!-- You can add your ad content here, such as text or an image -->
+  <img src="../../assets/images/lantern.png" alt="Ad Image" />
+  <h4 class="text-white">
+    Ideal Market-Place <br />
+    Best Place To Shop!
+  </h4>
+  <h4>Need Help ? Just Call Us</h4>
+</div>
+<div class="mainSection">
+  <div
+    class="image-container"
+    #imageContainer
+    (mouseenter)="onMouseEnter($event)"
+    (mouseleave)="onMouseLeave()"
+  >
+    <img
+      class="product-image zoom-image"
+      [src]="product.imageUrl"
+      alt="Product Image"
+      #productImage
+    />
+  </div>
+
+  <div class="content-box">
+    <h1 class="title">Product Details:</h1>
+    <div class="product-details">
+      <!-- <div class="detail">
+        <label class="label">Product ID:</label>
+        <span class="value">{{ product.idProducts }}</span>
+      </div> -->
+      <div class="detail">
+        <label class="label">Product Name:</label>
+        <span class="value">{{ product.prodName }}</span>
+      </div>
+      <div class="detail">
+        <label class="label">Type:</label>
+        <span class="value">{{ product.typeProd }}</span>
+      </div>
+     
+      <div class="detail">
+        <label class="label">Expiration Date:</label>
+        <span class="value">{{ product.expiration }}</span>
+      </div>
+      <div class="detail">
+        <label class="label">Quantity:</label>
+        <span class="value">{{ product.quantityP }}</span>
+      </div>
+      <div class="detail">
+        <label class="label">Product Details:</label>
+        <span class="value">{{ product.descriptionP }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.price }} TND</h5>
+        <label for="quantity">Quantity:</label>&nbsp;
+        <input
+          type="number"
+          id="quantity"
+          [(ngModel)]="quantity"
+          min="1"
+          max="{{ product.quantityP }}"
+        /><br />
+        <p class="" *ngIf="isLoggedIn">
+          <button class="add-to-cart-btn mt-2 mb-2" (click)="addToCart()">
+            <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+          </button>
+        </p>
+        <p class="" *ngIf="!isLoggedIn">
+          <button class="go-to-login mt-2 mb-2" routerLink="/login"> Sign In 
+      </button>
+        </p>
+        <h6 class="card-subtitle mb-2 text-body-secondary mt-1">
+          Shipped by Ideal
+        </h6>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Sold by Ideal</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="caro">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        *ngFor="let product of products; let i = index"
+        [attr.data-bs-target]="'#carouselExampleCaptions'"
+        [attr.data-bs-slide-to]="i"
+        [class.active]="i === 0"
+        [attr.aria-label]="'Slide ' + i"
+      ></button>
+    </div>
+    <div class="carousel-inner carcol">
+      <ng-container *ngFor="let product of products; let i = index">
+        <div class="carousel-item" [class.active]="i === 0">
+          <img [src]="product.imageUrl" class="imgurl d-block w-90" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>{{product.prodName}}</h5>
+            <p>{{product.typeProd}}</p>
+            <a (click)="reloadAndNavigate(product.idProducts)" class="btn btn-primary">More ></a>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>

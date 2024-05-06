@@ -1,0 +1,72 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <h2>Edit User</h2>
+    <form (ngSubmit)="updateUser()" #editUserForm="ngForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="creationDate">Creation Date</label>
+        <input type="date" class="form-control" id="creationDate" [(ngModel)]="user.creationDate" name="creationDate">
+      </div>
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" class="form-control" id="nom" [(ngModel)]="user.nom" name="nom">
+      </div>
+      <div class="form-group">
+        <label for="prenom">Prenom</label>
+        <input type="text" class="form-control" id="prenom" [(ngModel)]="user.prenom" name="prenom">
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <input type="text" class="form-control" id="gender" [(ngModel)]="user.gender" name="gender">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" [(ngModel)]="user.desctiption" name="description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="achievments">Achievments</label>
+        <textarea class="form-control" id="achievments" [(ngModel)]="user.achievments" name="achievments"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="fears">Fears</label>
+        <textarea class="form-control" id="fears" [(ngModel)]="user.fears" name="fears"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" class="form-control" id="age" [(ngModel)]="user.age" name="age">
+      </div>
+      <div class="form-group">
+        <label for="annualIncome">Annual Income</label>
+        <input type="number" class="form-control" id="annualIncome" [(ngModel)]="user.annualIncome" name="annualIncome">
+      </div>
+      <div class="form-group">
+        <label for="activated">Activated</label>
+        <select class="form-control" id="activated" [(ngModel)]="user.activated" name="activated">
+          <option [value]="true">Yes</option>
+          <option [value]="false">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="banned">Banned</label>
+        <select class="form-control" id="banned" [(ngModel)]="user.banned" name="banned">
+          <option [value]="true">Yes</option>
+          <option [value]="false">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="roles">Roles</label>
+        <select class="form-control" id="roles" [(ngModel)]="user.roles" name="roles" multiple>
+          <option *ngFor="let role of roles" [value]="role">{{role.name}}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!editUserForm.form.valid">Update User</button>
+    </form>
+  </div>
+</div>

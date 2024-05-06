@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+/* #home {
+    background: Orgb(0, 101, 219);
+    background: linear-gradient(
+      90deg,
+      rgb(0, 101, 219) 50%,
+      rgba(0, 212, 255, 1) 100%
+    );
+    min-height: 500px;
+  } */
+  #home {
+    background: rgb(0, 101, 219); /* Fallback color */
+    background: linear-gradient(
+      45deg,
+     
+      rgba(0, 212, 255, 1) 25%, /* 25% position with rgba for the second color */
+      rgba(65, 240, 240, 0.5) 50%, /* 50% position with rgba for the third color */
+      rgb(84, 224, 130) 75%, /* 75% position with rgba for the fourth color */
+      rgb(60, 239, 102) 100% /* 100% position with rgba for the fifth color */
+    );
+    min-height: 500px;
+}
+
+#phys {
+  background: Orgb(0, 101, 219);
+  background: linear-gradient(
+    45deg,
+    rgb(188, 188, 188) 50%,
+    rgb(244, 111, 70) 50%
+  );
+  min-height: 500px;
+}
+
+
+body
+{
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    /* cursor: url(./assets/images/sword2.png), auto !important; */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; 
+}

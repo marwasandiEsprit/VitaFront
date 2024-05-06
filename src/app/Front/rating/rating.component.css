@@ -1,0 +1,66 @@
+.user-details {
+  margin: 20px auto;
+  max-width: 400px;
+  text-align: center;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.detail-label {
+  font-weight: bold;
+  width: 80px;
+}
+
+.detail-value {
+  margin-left: 10px;
+}
+
+.rating-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.rating {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.star {
+  cursor: pointer;
+}
+
+.star.filled {
+  color: yellow;
+}
+
+.submit-button {
+  padding: 8px 16px;
+  font-weight: bold;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+.psy-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.psy-link a {
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.psy-link a:hover {
+  text-decoration: underline;
+}

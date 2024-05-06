@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Quotes</title>
+    <style>
+        /* Sakura-themed design */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url("../../assets/images/quoate.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white container background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333; /* Dark gray text */
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50; /* Green submit button */
+            color: #fff; /* White text */
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #45a049; /* Darker green hover color */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Add a Quote</h1>
+        <form class="form" (submit)="addQuote()">
+            <div class="form-group">
+                <label for="name">Author:</label>
+                <input
+                    type="text"
+                    id="name"
+                    [(ngModel)]="newQuote.quoteTitle"
+                    name="name"
+                    required
+                />
+            </div>
+           
+            <div class="form-group">
+                <label for="description">QUOTE:</label>
+                <textarea
+                    id="description"
+                    [(ngModel)]="newQuote.descriptionQuotes"
+                    name="description"
+                    required
+                ></textarea>
+            </div>
+            
+            <button class="submit-button" type="submit">Add Quote</button>
+        </form>
+    </div>
+
+    <!-- JavaScript for adding quotes -->
+</body>
+
+</html>

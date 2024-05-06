@@ -1,0 +1,210 @@
+<div [ngClass]="status ? 'toggled' : ''" class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-white" id="sidebar-wrapper">
+      <div
+        class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"
+      >
+        <i class="fas fa-user-secret me-2"></i>Admin
+      </div>
+      <div class="list-group list-group-flush my-3">
+        <a
+          href="/listUser"
+          class="list-group-item list-group-item-action bg-transparent second-text active"
+          ><i class="fas fa-user me-2"></i>Users</a>
+    
+      <a
+      routerLink="/listRecette"
+      class="list-group-item list-group-item-action bg-transparent second-text active"
+      ><i class="fas fa-bacon" style="font-size:24px"></i>Recette</a
+    >
+        <a
+          routerLink="/dashProds"
+          class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+          ><i class="fas fa-project-diagram me-2"></i>Products</a
+        >
+        <a
+          href="#"
+          class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+          ><i class="fas fa-chart-line me-2"></i>Analytics</a
+        >
+        <a
+          href="#"
+          class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+          ><i class="fas fa-paperclip me-2"></i>Reports</a
+        >
+        <a
+          href="#"
+          class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+          ><i class="fas fa-shopping-cart me-2"></i>Store Mng</a
+        >
+        <a
+          href="#"
+          class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+          ><i class="fas fa-gift me-2"></i>Products</a
+        >
+        <a
+          href="#"
+          class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+          ><i class="fas fa-comment-dots me-2"></i>Chat</a
+        >
+        <a
+          href="#"
+          class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+          ><i class="fas fa-map-marker-alt me-2"></i>Outlet</a
+        >
+        <a
+          href="#"
+          class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"
+          ><i class="fas fa-power-off me-2"></i>Logout</a
+        >
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+  
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+        <div class="d-flex align-items-center">
+          <i
+            class="fas fa-align-left primary-text fs-4 me-3"
+            (click)="addToggle()"
+            id="menu-toggle"
+          ></i>
+          <h2 class="fs-2 m-0">Dashboard</h2>
+        </div>
+  
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle second-text fw-bold"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fas fa-user me-2"></i>John Doe
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+<br>
+<div *ngFor="let item of ingredients">
+    <div [id]="'confirmationAlert' + item.idIngredients" class="alert alert-danger" role="alert" style="display: none;">
+        Êtes-vous sûr de vouloir supprimer cette Ingredients ?<br>
+        <button type="button" class="btn btn-danger" (click)="deleteIngredient(item.idIngredients)">Oui</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelDelete(item.idIngredients)">Non</button>
+    </div>
+</div>
+<div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <h5 class="card-header">Liste des Ingrédients</h5>
+                <button mat-button class="blue-bg-button" (click)="openModal(template)">
+                    <i class="fa fa-plus-square" aria-hidden="true"></i> Ajouter un nouveau
+                </button>
+                <!-- Affichage de l'alerte de succès -->
+                <div *ngIf="successMessage" class="alert alert-success">
+                    {{ successMessage }}
+                </div>
+
+                <!-- Affichage de l'alerte d'erreur -->
+                <div *ngIf="errorMessage" class="alert alert-danger">
+                    {{ errorMessage }}</div>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Produits</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let ingredient of ingredients">
+                                <td>{{ ingredient.idIngredients }}</td>
+                                <td>{{ ingredient.description }}</td>
+                                <td>{{ ingredient.products }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-link btn-lg btn-rounded text-success"
+                                        (click)="updateIngredient(ingredient.idIngredients,ingredient)">
+                                        <i class="fa fa-pencil"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-link btn-lg btn-rounded text-danger"
+                                        (click)="confirmDelete(ingredient.idIngredients)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Ajouter un nouvel ingrédient</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form (submit)="addIngredient()">
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <input type="text" class="form-control" id="description" [(ngModel)]="newIngredient.description"
+                    name="description">
+            </div>
+            <div class="form-group">
+                <label for="products">Produits:</label>
+                <input type="text" class="form-control" id="products" [(ngModel)]="newIngredient.products"
+                    name="products">
+            </div>
+            <div class="form-group">
+                <label for="fileInput" class="form-label"> Select Image
+                </label>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="fileInput"
+                  (change)="selectFile($event)"
+                  name="fileInput"
+                  accept="image/jpeg, image/png, image/gif, image/bmp, image/webp"
+                />
+              </div>
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+        </form>
+    </div>
+</ng-template>

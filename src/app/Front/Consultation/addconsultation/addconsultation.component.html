@@ -1,0 +1,202 @@
+<div class="container">
+  <h2>Add Consultation</h2>
+  <form [formGroup]="consultationForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="startTime">Start Time:</label>
+      <input type="time" id="startTime" formControlName="startTime" required>
+    </div>
+
+    <div>
+      <label for="consultationDate">Consultation Date:</label>
+      <input type="date" id="consultationDate" name="consultationDate" formControlName="consultationDate" matInput>
+    </div>
+    
+
+    <div>
+      <label for="psychiatristId">Psychiatrist:</label>
+      <select id="psychiatristId" name="psychiatristId" formControlName="psychiatristId" required>
+        <option *ngFor="let psychiatrist of psychiatrists" [value]="psychiatrist.id">{{ psychiatrist.username }}</option>
+      </select>
+    </div>
+
+    <button type="submit" [disabled]="consultationForm.invalid">Add Consultation</button>
+  </form>
+
+    
+
+<body dir="rtl">
+  <div class="dayview-container">
+    <div class="dayview-timestrings-container">
+      <div class="dayview-timestrings">
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            00:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            01:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            02:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            03:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            04:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            05:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            06:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            07:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            08:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            09:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            10:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            11:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            12:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            13:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            14:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            15:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            16:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            17:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            18:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            19:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            20:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            21:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            22:00
+          </div>
+        </div>
+        <div class="dayview-timestring-container">
+          <div class="dayview-timestring">
+            23:00
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dayview-grid-container">
+      <div class="dayview-grid">
+        <div class="dayview-grid-tiles">
+          <div class="dayview-now-marker" [style.top.px]="redLinePosition"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+          <div class="dayview-grid-tile"></div>
+        </div>
+
+        <div class="dayview-grid-marker-start"></div>
+        <div class="dayview-gridcell-container">
+          <div class="dayview-gridcell">
+            
+            <div class="dayview-gridcell" *ngFor="let timeSlot of availableTimeSlots; let i = index">
+              <div class="dayview-cell" [style.gridRow]="getGridRow(i)">
+                <div class="dayview-cell-title">available </div>
+
+                <div class="dayview-cell-desc">test</div>
+              </div>
+            </div>
+         
+          </div>
+        </div>
+        <div class="dayview-grid-marker-end"></div>
+      </div>
+    </div>
+  </div>
+  
+   

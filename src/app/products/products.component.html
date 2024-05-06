@@ -1,0 +1,82 @@
+<div class="mainSection">
+  <div class="contentBox">
+    <div class="form-container">
+      <form class="form" (submit)="addProduct()">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            [(ngModel)]="newProduct.prodName"
+            name="name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="type">Type:</label><br />
+          <select
+            id="type"
+            [(ngModel)]="newProduct.typeProd"
+            name="type"
+            required
+          >
+            <option *ngFor="let type of productTypes" [value]="type">
+              {{ type }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="price">Price (TND):</label>
+          <input
+            type="number"
+            id="price"
+            [(ngModel)]="newProduct.price"
+            name="price"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantity:</label>
+          <input
+            type="number"
+            id="quantity"
+            [(ngModel)]="newProduct.quantityP"
+            name="quantity"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea
+            id="description"
+            [(ngModel)]="newProduct.descriptionP"
+            name="description"
+            required
+          ></textarea>
+        </div>
+        <label for="dateRappPs">Expiration Date:</label><br />
+        <input
+          type="date"
+          id="dateRappPs"
+          name="dateRappPs"
+          [(ngModel)]="newProduct.expiration"
+          required
+        />
+        <div class="form-group">
+          <label>Image:</label><br />
+          <input
+            type="file"
+            class="myimage"
+            (change)="onFileSelected($event)"
+            accept="image/*"
+            required
+          />
+        </div>
+        <button class="submit-button" type="submit">Add Product</button>
+      </form>
+    </div>
+  </div>
+  <div class="imgContainer">
+    <img src="../../assets/images/prod1.png" alt="Product Image" />
+  </div>
+</div>

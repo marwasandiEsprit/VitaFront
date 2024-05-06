@@ -1,0 +1,48 @@
+.recipe-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .recipe-card {
+    width: 300px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .recipe-card img {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .recipe-details {
+    padding: 10px;
+  }
+  
+  .recipe-details h2 {
+    margin: 0;
+  }
+  .ingredient-card {
+    overflow: hidden; /* Ensures the image doesn't overflow the card */
+}
+
+.ingredient-image {
+    width: 100%; /* Makes the image take full width of the card */
+    height: 200px; /* Set a fixed height or use auto */
+    object-fit: cover; /* Ensures the image covers the space without distorting */
+}
+.chart-container {
+    overflow-x: auto; /* Allows horizontal scrolling */
+    white-space: nowrap; /* Keeps the charts on one line */
+    padding: 10px 0;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+}
+
+.chart-container > div {
+    display: inline-block; /* Ensures charts are inline */
+    flex-shrink: 0; /* Prevents reduction in chart size */
+    width: 400px; /* Manages chart width */
+}

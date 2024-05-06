@@ -1,0 +1,73 @@
+<!-- Liste des ingrédients -->
+<div class="container mt-5">
+  <h2>Liste des Ingrédients</h2>
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Rechercher par nom..."
+      [(ngModel)]="searchText"
+      (input)="filterIngredients()"
+      aria-label="Rechercher par nom"
+      aria-describedby="button-addon2"
+    >
+ 
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let ingredient of ingredients" (click)="openIngredientModal(template1, ingredient)">
+      <div class="card ingredient-card">
+        <img [src]="ingredient.images" class="card-img-top ingredient-image" alt="{{ ingredient.products }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ ingredient.products }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #template2>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Statistiques</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h1>Statistiques des Recettes</h1>
+
+    <!-- Scrollable Chart Container -->
+    <div class="chart-container">
+      <!-- Bar Chart -->
+      <div style="display: inline-block; width: 400px;">
+        <h5>Type de plat</h5>
+        <p-chart type="bar" [data]="dataDishType" [options]="chartOptions"></p-chart>
+      </div>
+      <div style="display: inline-block; width: 400px;">
+        <h5>Durée de préparation</h5>
+        <p-chart type="bar" [data]="dataDuration" [options]="chartOptions"></p-chart>
+      </div>
+
+      <!-- Doughnut Chart -->
+      <div style="display: inline-block; width: 400px;">
+        <h5>Ingrédients les plus populaires</h5>
+        <p-chart id="doughnutChart" type="bar" [data]="doughnutChartData" [options]="chartOptions1"></p-chart>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #template1>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Recettes pour {{ingredient?.products }}  </h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div *ngFor="let recipe of ingredient?.recipes" class="modal-body">
+    <ul>
+      <li>avec Duree Prepration {{ recipe.duration }} min </li>
+      <li>Plats {{ recipe.dishType?.name }}</li>
+      <li>les étapes {{ recipe.description }}</li>
+    </ul>
+  </div>
+</ng-template>

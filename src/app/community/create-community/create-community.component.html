@@ -1,0 +1,20 @@
+<div>
+  <h2>Create Community</h2>
+  <form [formGroup]="communityForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+    <div class="form-group col-md-4 mb-3">
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name" class="form-control"
+             [ngClass]="{'is-invalid': submitted && communityForm.get('name')?.errors}">
+      <span *ngIf="communityForm.get('name')!.errors?.['required'] && submitted" class="invalid-feedback">Name is required</span>
+    </div>
+    <div class="form-group col-md-4 mb-3">
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description" class="form-control"
+                [ngClass]="{'is-invalid': submitted && communityForm.get('description')?.errors}"></textarea>
+
+      <span *ngIf="communityForm.get('description')!.errors?.['required'] && submitted" class="invalid-feedback">Description is required</span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+  <div></div>
+</div>

@@ -1,0 +1,73 @@
+<div id="contacts" #contacts>
+    <section>
+      <div class="container my-5 py-5">
+        <div class="row mb-5">
+          <div class="col-12">
+            <h3 class="fd-5 text-center mb-0">Contact Us</h3>
+            <h1 class="display-6 text-center mb-4">
+              Have Some <b>Questions?</b>
+            </h1>
+            <hr class="w-25 mx-auto" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="../../assets/images/ctn.jpg" alt="Contact" class="ctn" />
+          </div>
+          <div class="col-md-6">
+            
+              <div class="mb-3">
+                <label for="name" class="form-label">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="User Name"
+                  name="name"
+                  
+                 disabled
+                />
+              </div>
+              <!-- value={msg.name} -->
+
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">
+                  Email address
+                </label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="name@example.com"
+                  name="email"
+                 
+                disabled
+                />
+              </div>
+              <!-- value={msg.email} -->
+
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">
+                  Your Message
+                </label>
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="5"
+                  name="message"
+                  
+                ></textarea>
+                <!-- value={msg.message}
+                  onChange ={handleChange} -->
+              </div>
+              <button type="button"  class="btn btn-outline-primary rounded-pill px-4">Send Message
+                <i class="fa fa-paper-plane ms-2"></i>
+              </button>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>

@@ -1,0 +1,32 @@
+<div class="container">
+  
+    <h2>Update Rapport Psy </h2>
+    <form [formGroup]="rapportPsyForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" formControlName="description"></textarea>
+        <div *ngIf="rapportPsyForm.controls['description'].invalid && rapportPsyForm.controls['description'].touched" class="text-danger">
+          Description is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dateRappPs">Date</label>
+        <input type="date" id="dateRappPs" class="form-control" formControlName="dateRappPs">
+        <div *ngIf="rapportPsyForm.controls['dateRappPs'].invalid && rapportPsyForm.controls['dateRappPs'].touched" class="text-danger">
+          Date is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="clientId">Client</label>
+        <select id="clientId" class="form-control" formControlName="clientId">
+          <option *ngFor="let client of clients" [value]="client.id">{{ client.username }}</option>
+        </select>
+        <div *ngIf="rapportPsyForm.controls['clientId'].invalid && rapportPsyForm.controls['clientId'].touched" class="text-danger">
+          Please select a client
+        </div>
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  <button routerLink="/rap" class="router-link-button">back</button>

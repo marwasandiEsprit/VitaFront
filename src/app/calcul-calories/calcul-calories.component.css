@@ -1,0 +1,203 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+/* Icons */
+.fa-trash,
+.fa-window-close,
+.fa-times-circle,
+.fa-calculator {
+  cursor: pointer;
+}
+
+.fa-trash:hover,
+.fa-window-close:hover,
+.fa-times-circle:hover,
+.fa-calculator:hover {
+  color: red;
+}
+
+/* Form styles */
+.form-group label {
+  font-weight: bold;
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+/* Modal styles */
+.modal-content {
+  border-radius: 0;
+}
+
+.modal-header {
+  background-color: #007bff;
+  color: white;
+}
+
+.modal-title {
+  font-weight: bold;
+}
+/* Icons container */
+.icons-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+/* Icon styles */
+.card-icon {
+  font-size: 1.2em;
+  color: #6c757d;
+  transition: color 0.3s ease;
+}
+
+.card-icon:hover {
+  color: #007bff;
+  cursor: pointer;
+}
+/* Calculator icon */
+.calculator-icon {
+  font-size: 1.5em;
+  color: #6c757d;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto;
+}
+
+.calculator-icon:hover {
+  color: #007bff;
+}
+
+/* Calculator container */
+.calculator-container {
+  border: 1px solid #dee2e6;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+.calcullclos{
+  display: flex;
+  flex-direction: row;
+}
+.calcullclos h2 {
+  margin-right: 60px;
+  padding-right: 60px;
+}
+.calcullclos i {
+  margin-left: 200px;
+  padding-left: 200px;
+}
+/* Calculator table */
+.calculator-table {
+  margin-bottom: 0;
+}
+
+/* Calculator result */
+.calculator-result {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 20px;
+}
+/* Ajoutez ce code CSS à votre fichier CSS existant */
+
+/* Déplacez le bouton en bas à gauche de la page */
+.calculator-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+
+/* Améliorez les espaces entre tous les éléments de la page */
+.card {
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+/* Améliorez les couleurs des titres et des champs */
+.card-title {
+  color: #007bff;
+}
+
+.form-control {
+  border-color: #ced4da;
+}
+
+/* Améliorez la taille des champs */
+.form-control {
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+}
+/* Ajoutez ce code CSS à votre fichier CSS existant */
+
+/* Déplacez le bouton en bas à gauche de la page */
+
+
+/* Améliorez le style du bouton de calcul */
+.calculate-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+
+.calculate-button:hover {
+  background-color: #218838;
+}
+
+/* Ajoutez un style pour le sélecteur */
+.form-select {
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+}
+
+/* Améliorez le style de la table */
+.table {
+  margin-top: 20px;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.table th {
+  color: #6c757d;
+  font-weight: bold;
+}
+
+.table td {
+  font-weight: normal;
+}
+
+/* Améliorez le style de l'icône de suppression */
+.bi-trash {
+  color: #dc3545;
+  cursor: pointer;
+}
+
+.bi-trash:hover {
+  color: #bd2130;
+}

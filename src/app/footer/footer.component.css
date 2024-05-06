@@ -1,0 +1,35 @@
+.footer {
+    overflow: hidden;
+    position: sticky;
+    top: 100%;
+    padding: 20px 10px;
+    background: linear-gradient(45deg, #0066FF 50%, #00ffae  100%);
+}
+/* 0066FF */
+h1
+{
+    font-weight: bold;
+    color: #fff;
+    font-size: 20px;
+}
+p
+{
+    color: #fff;
+    font-size: 14px;
+}
+
+a
+{
+    color: #fff;
+    text-decoration:none ;
+    padding: 0px 10px;
+    font-size: 17px;
+}
+a:hover
+{
+    color: #000000;
+}
+i
+{
+    padding: 0px 10px;
+}

@@ -1,0 +1,85 @@
+<div class="mainSection">
+  <div class="contentBox">
+    <h1 class="text-bold text-white">Our Community</h1>
+    <p class="text-white">
+    A whole world of Premuim Products at your Fingertips
+      <i class="fa fa-diamond text-white" aria-hidden="true"></i>
+      <br />
+      Find the Perfect Product for your Yourself !
+    </p>
+
+    <div>
+      <div class="btnn rounded-pill">
+        <Input
+          class="sea"
+          icon="search"
+          placeholder="Search..."
+          onChange=""
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div class="imgContainer">
+    <img src="../../assets/images/prod1.png" alt="home" />
+  </div>
+</div>
+<!-- your-component.component.html -->
+<div class="search-container">
+  <input type="text" [(ngModel)]="searchQuery" placeholder="Enter food item...">
+  <button (click)="searchFood(searchQuery)">Search</button>
+</div>
+
+<div *ngIf="searchResults && searchResults.length > 0">
+  <h2>Search Results:</h2>
+  <ul class="search-results">
+    <li *ngFor="let item of searchResults; let i = index">
+      <div *ngIf="i < 5"> <!-- Limit to the first five results -->
+        
+        <h3>{{ item.description }} - {{ item.foodNutrients[0]?.nutrientName }}: {{ item.foodNutrients[0]?.value }} {{ item.foodNutrients[0]?.unitName }}</h3>
+        <!-- Display other relevant information here -->
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="searchResults && searchResults.length === 0">
+  <p>No results found.</p>
+</div>
+
+<div *ngIf="!searchResults">
+  <p>Loading...</p>
+</div>
+
+
+<div class="">
+  <ng-container *ngFor="let prodsChunk of paginatedProducts">
+    <div class="row aaa">
+      <div *ngFor="let prods of prodsChunk" class="col-md-3">
+        <div class="card caP">
+          <img [src]="prods.imageUrl" class="card-img-top" alt="Product Image"/>
+          <div class="card-body bod">
+            <hr>
+            <h5 class="card-title">Name: {{ prods.prodName }}</h5>
+            <h5 class="">Type: {{ prods.typeProd }}</h5>
+            <h5>Price: {{ prods.price }} TND</h5>
+            <h5>Quantity Available: {{ prods.quantityP }}</h5>
+            <a routerLink="/detailProds/{{ prods.idProducts }}" class="btn btn-primary">More ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+<!-- Your existing HTML code -->
+<div class="pagination">
+  <button class="pagination-button" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+  <span>Page {{ currentPage }} of {{ totalPages }}</span>
+  <button class="pagination-button" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+</div>
+
+
+
+
+
+

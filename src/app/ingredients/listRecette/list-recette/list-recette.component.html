@@ -1,0 +1,72 @@
+<div class="container mt-5">
+    <h1>Liste des recettes</h1>
+    <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Rechercher par nom..."
+          [(ngModel)]="searchText"
+          (input)="filterRecettes()"
+          aria-label="Rechercher par nom"
+          aria-describedby="button-addon2"
+        >
+        <button class="btn btn-primary" type="button" id="button-addon2" (click)="openIngredientModal2(template2 )"  >Voir Statistiques</button>
+      </div>
+    
+    <div class="row">
+        <div class="col-md-4 mb-3" *ngFor="let recipe of recipes"  (click)="openIngredientModal(template1, recipe)">
+          <div class="card ingredient-card">
+            <img [src]="recipe.images" class="card-img-top ingredient-image" alt="{{ recipe.name }}">
+            <div class="card-body">
+              <h5 class="card-title">{{recipe.name }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #template2>
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">Statistiques</h4>
+            <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <h1>Statistiques des Recettes</h1>
+          
+            <!-- Scrollable Chart Container -->
+            <div class="chart-container">
+              <!-- Pie Chart -->
+              <div style="display: inline-block; width: 400px;">
+                <h5>Type de plat</h5>
+                <p-chart type="bar" [data]="dataDishType" [options]="chartOptions"></p-chart>
+              </div>
+              <div style="display: inline-block; width: 400px;">
+                <h5>durée de préparation</h5>
+                <p-chart type="bar" [data]="dataDuration" [options]="chartOptions"></p-chart>
+              </div>
+      
+              <!-- Doughnut Chart -->
+              <div style="display: inline-block; width: 400px;">
+                <h5>Most Popular Ingredients</h5>
+                <p-chart id="bar" type="bar" [data]="doughnutChartData" [options]="chartOptions1"></p-chart>
+              </div>
+            </div>
+        </div>
+      </ng-template>
+      
+    <!-- Modèle du modal -->
+    <ng-template #template1>
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">Ingrédients pour {{ selectedRecipe?.name }} </h4>
+          <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li *ngFor="let ingredient of selectedRecipe?.ingredients">{{ ingredient.products }}</li>
+          </ul>
+        </div>
+      </ng-template>
+    

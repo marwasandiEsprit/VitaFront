@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="">IDEAL</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav  ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink=""  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">Home</a>
+          </li>
+          
+          <li class="nav-item" *ngIf=" !isUserRoleAdmin() && !isUserRolePsy()">
+            <a *ngIf="isLoggedIn" class="nav-link active" routerLink="CalculCalories"  routerLinkActive="active-link">Plats</a>
+          </li>
+          <li class="nav-item" *ngIf=" !isUserRoleAdmin()">
+            <a *ngIf="isLoggedIn" class="nav-link active" routerLink="chat"  routerLinkActive="active-link" >Discussions</a>
+          </li>
+          <li class="nav-item" *ngIf=" !isUserRoleAdmin()">
+            <a class="nav-link" routerLink="train" routerLinkActive="active-link">Discover</a>
+          </li>
+          <li class="nav-item" *ngIf=" isUserRolePsy()">
+            <a class="nav-link" routerLink="rap" routerLinkActive="active-link">My Rapports</a>
+          </li>
+          <li class="nav-item" *ngIf=" isUserRolePsy()">
+            <a class="nav-link" routerLink="consultationpsy" routerLinkActive="active-link">My Consultations</a>
+          </li>
+          
+          <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn && isUserRoleAdmin()">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="listUser" routerLinkActive="active-link">Dash</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" *ngIf=" !isUserRoleAdmin()">
+          <li class="nav-item" *ngIf=" !isUserRoleAdmin()&& !isUserRolePsy()" >
+            <a class="nav-link" routerLink="listProds" routerLinkActive="active-link">Market</a>
+          </li>
+          <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn && !isUserRolePsy()&& !isUserRoleAdmin() ">
+           <li class="nav-item">
+            <a class="nav-link" routerLink="cart" routerLinkActive="active-link">Cart</a>
+          </li>
+        </ul>
+      </ul>
+           <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="listUser" routerLinkActive="active-link">Users</a>
+          </li>  -->
+
+          <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+            <li class="nav-item">
+              <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+            
+          </ul>
+
+          <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+            <li class="nav-item">
+              <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+            </li>
+            <li class="nav-item" *ngIf=" isUserRoleClient()">
+              <a href="/consultations" class="nav-link" routerLink="consultations">My Profile</a>
+            </li>
+            <li class="nav-item">
+              <a href class="nav-link" (click)="logout()">LogOut</a>
+            </li>
+          </ul>
+          <!--
+          <li class="nav-item">
+            <a class="nav-link" routerLink="contact" routerLinkActive="active-link">Contact</a>
+          </li> -->
+
+          <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="cart" routerLinkActive="active-link"><i class="bi bi-cart"></i></a>
+          </li> -->
+          <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="login" routerLinkActive="active-link">Log In</a>
+          </li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  

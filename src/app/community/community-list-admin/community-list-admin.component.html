@@ -1,0 +1,246 @@
+<div [ngClass]="status ? 'toggled' : ''" class="d-flex" id="wrapper">
+  <!-- Sidebar -->
+  <div class="bg-white" id="sidebar-wrapper">
+    <div
+      class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"
+    >
+      <i class="fas fa-user-secret me-2"></i>Admin
+    </div>
+    <div class="list-group list-group-flush my-3">
+      <a
+        href="/listUser"
+        class="list-group-item list-group-item-action bg-transparent second-text"
+      ><i class="fas fa-user me-2"></i>Users</a
+      >
+      <a
+        routerLink="/admin/community"
+        class="list-group-item list-group-item-action bg-transparent second-text active"
+      ><i class="fas fa-users me-2"></i>Communities</a>
+      <a
+        routerLink="/dashProds"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+      ><i class="fas fa-project-diagram me-2"></i>Products</a
+      >
+      <a
+        href="#"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+      ><i class="fas fa-chart-line me-2"></i>Analytics</a
+      >
+      <a
+        href="#"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+      ><i class="fas fa-paperclip me-2"></i>Reports</a
+      >
+      <a
+        href="#"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+      ><i class="fas fa-shopping-cart me-2"></i>Store Mng</a
+      >
+      <a
+        href="#"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+      ><i class="fas fa-gift me-2"></i>Products</a
+      >
+      <a
+        href="#"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+      ><i class="fas fa-comment-dots me-2"></i>Chat</a
+      >
+      <a
+        href="#"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+      ><i class="fas fa-map-marker-alt me-2"></i>Outlet</a
+      >
+      <a
+        href="#"
+        class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"
+      ><i class="fas fa-power-off me-2"></i>Logout</a
+      >
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+      <div class="d-flex align-items-center">
+        <i
+          class="fas fa-align-left primary-text fs-4 me-3"
+          (click)="addToggle()"
+          id="menu-toggle"
+        ></i>
+        <h2 class="fs-2 m-0">Dashboard</h2>
+      </div>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle second-text fw-bold"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-user me-2"></i>John Doe
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid px-4">
+      <button type="button" class="btn btn-primary" (click)="openModal(template)">Create new community</button>
+
+      <div class="row my-5">
+        <h3 class="fs-4 mb-3">Communities List</h3>
+
+        <div class="col">
+
+          <table class="table bg-white rounded shadow-sm table-hover">
+            <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+
+              <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-container>
+              <tr *ngFor="let u of communities">
+                <!-- Check if searchTerm is empty or if the product matches the search term -->
+                <ng-container>
+                  <td>{{ u.name }}</td>
+                  <td>{{ u.description }}</td>
+                  <td>
+
+                    <a
+                      class="btn btn-outline-success"
+                      style="margin-left: 10px"
+                      (click)="openCreatePOstModal(postCreateModal, u.idCommunity)"
+                    >New post</a>
+                    <a
+                      class="btn btn-danger"
+                      style="margin-left: 10px"
+                      (click)="confirmDelete(u.idCommunity)"
+                    >delete</a>
+
+
+                  </td>
+                </ng-container>
+              </tr>
+            </ng-container>
+            </tbody>
+          </table>
+
+          <!-- Pagination -->
+          <!--               <nav aria-label="Page navigation example">-->
+          <!--                <ul class="pagination justify-content-center">-->
+          <!--                  <li class="page-item" [class.disabled]="currentPage === 1">-->
+          <!--                    <a class="page-link"  (click)="previousPage()">Previous</a>-->
+          <!--                  </li>-->
+          <!--                  <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page">-->
+          <!--                    <a class="page-link"  (click)="goToPage(page)">{{ page }}</a>-->
+          <!--                  </li>-->
+          <!--                  <li class="page-item" [class.disabled]="currentPage === totalPages">-->
+          <!--                    <a class="page-link"  (click)="nextPage()">Next</a>-->
+          <!--                  </li>-->
+          <!--                </ul>-->
+          <!--              </nav>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /#page-content-wrapper -->
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">New community</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="communityForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+      <div class="form-group mb-3">
+        <label for="name">Name:</label>
+        <input type="text" id="name" formControlName="name" class="form-control" placeholder="Community name"
+               [ngClass]="{'is-invalid': submitted && communityForm.get('name')?.errors}">
+        <span *ngIf="communityForm.get('name')!.errors?.['required'] && submitted" class="invalid-feedback">Name is required</span>
+      </div>
+      <div class="form-group mb-3">
+        <label for="description">Description:</label>
+        <textarea id="description" formControlName="description" class="form-control" placeholder="Community description"
+                  [ngClass]="{'is-invalid': submitted && communityForm.get('description')?.errors}"></textarea>
+
+        <span *ngIf="communityForm.get('description')!.errors?.['required'] && submitted" class="invalid-feedback">Description is required</span>
+      </div>
+      <button type="submit" class="btn btn-primary align-items-end">Create</button>
+    </form>
+  </div>
+</ng-template>
+
+
+<ng-template #postCreateModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Compose new post</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="newPostForm" (ngSubmit)="onNewPostSubmit()" novalidate>
+      <div class="form-group">
+        <label for="postDescription">Description</label>
+        <input type="text" class="form-control" id="postDescription" formControlName="postDescription"
+               [ngClass]="{'is-invalid': postFormSubmitted && newPostForm.get('postDescription')?.errors}">
+        <span *ngIf="newPostForm.get('postDescription')?.errors?.['required'] && postFormSubmitted" class="invalid-feedback">
+          Description is required.
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="post">Post</label>
+        <textarea class="form-control" id="post" formControlName="post"
+                  [ngClass]="{'is-invalid': postFormSubmitted && newPostForm.get('post')?.errors}">
+                </textarea>
+        <span *ngIf="newPostForm.get('post')?.errors?.['required'] && postFormSubmitted" class="invalid-feedback">
+          Post is required.
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="fileInput" class="form-label"> Select Image
+        </label>
+        <input
+          type="file"
+          class="form-control"
+          id="fileInput"
+          (change)="selectFile($event)"
+          name="fileInput"
+          accept="image/jpeg, image/png, image/gif, image/bmp, image/webp"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Create Post</button>
+    </form>
+  </div>
+</ng-template>

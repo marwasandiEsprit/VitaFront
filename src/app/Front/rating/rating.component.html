@@ -1,0 +1,28 @@
+<div class="user-details">
+    <h3>User Details</h3>
+    <div class="detail-row">
+        <span class="detail-label">Name:</span>
+        <span class="detail-value">{{ user?.username }}</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Email:</span>
+        <span class="detail-value">{{ user?.email }}</span>
+    </div>
+    <!-- Add more details as needed -->
+</div>
+
+<div class="rating-section">
+    <h2>Add Rating</h2>
+    <div class="rating">
+        <span class="star" (click)="setRating(1)" [class.filled]="selectedRating >= 1">&#9733;</span>
+        <span class="star" (click)="setRating(2)" [class.filled]="selectedRating >= 2">&#9733;</span>
+        <span class="star" (click)="setRating(3)" [class.filled]="selectedRating >= 3">&#9733;</span>
+        <span class="star" (click)="setRating(4)" [class.filled]="selectedRating >= 4">&#9733;</span>
+        <span class="star" (click)="setRating(5)" [class.filled]="selectedRating >= 5">&#9733;</span>
+    </div>
+    <button class="submit-button" (click)="submitFeedback()">Submit</button>
+</div>
+
+<div class="psy-link">
+    <a [routerLink]="['/psyc']">return</a>
+</div>

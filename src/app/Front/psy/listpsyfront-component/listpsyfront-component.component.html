@@ -1,0 +1,58 @@
+<section id="phys">
+  <div class="">
+    <div class="row ">
+      <div class="col-lg-10 mt-2">
+          <div class="premuium row">
+        <h1 class=" fw-bolder mb-4 text-center text-white">Or Try Our Premuim Version</h1>
+        <a class="aaa text-center" href="cook">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Subscribe
+        </a>
+      </div>
+      </div>
+      <div class="col-lg-8 mb-4 mt-2">
+        <p class="logo text-black ">
+          <!-- We provide you with the ability to work and complete your tasks. -->
+          Enjoy Our Sessions 
+        </p>
+
+        <div class="buttons d-flex justify-content-center">
+          <div class="App"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="row justify-content-center mt-4">
+    <div class="col-md-4 mb-4">
+      <input type="text" class="form-control" placeholder="Search by Username or Email" [(ngModel)]="searchTerm">
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4 mb-4" *ngFor="let user of filteredUsers">
+      <div class="card user-card">
+        <div class="card-body">
+          <h5 class="card-title">{{ user.username }}</h5>
+          <p class="card-text">Email: {{ user.email }}</p>
+          <p class="card-text">Gender: {{ user.gender }}</p>
+          <p class="card-text">Rating:
+            <span class="rating-stars">
+              <ng-container *ngFor="let star of getStars(user.rating)">
+                <i class="fas fa-star"></i>
+              </ng-container>
+            </span>
+          </p>
+          <div class="action-buttons">
+            <button class="btn btn-danger reserve-btn"
+              (click)="user.id && reserveConsultation(user.id)">Reserve</button>
+            <a [routerLink]="['/rating', user.id]" class="btn btn-primary rate-btn">Rate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

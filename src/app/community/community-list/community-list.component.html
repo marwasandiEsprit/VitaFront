@@ -1,0 +1,27 @@
+<div class="community-list" *ngIf="communities">
+  <h2>Communities</h2>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <input type="search" placeholder="Search" [(ngModel)]="searchTerm" (input)=searchCommunity()
+             class="form-control"></div>
+  </div>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let comm of communities"
+      >
+        <div class="card p-3">
+          <div class="d-flex flex-row mb-3 align-items-center">
+            <div class="avatar" [style.background-color]="getRandomColor()">
+              <span>{{ getRandomInitials(comm.name) }}</span>
+            </div>
+            <div class="d-flex flex-column ml-2">{{ comm.name }}</div>
+          </div>
+          <h6>{{ comm.description }}</h6>
+          <div class="d-flex justify-content-between install mt-3"><span class="text-primary"
+                                                                         (click)="joinCommunity(comm.idCommunity)">Join Community&nbsp;<i
+            class="fa fa-angle-right"></i></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

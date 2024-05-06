@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="sidebar text-center">
+    <h1>My Profile</h1>
+    <button class="styled-button">Consultations</button>
+    <a [routerLink]="'/faq'">Go to FAQ</a>
+  </div>
+
+  <div class="content ">
+    <h2 class="title text-center">My Consultations</h2>
+
+    <!-- Buttons at the top -->
+
+    <ng-container *ngIf="consultations && consultations.length > 0; else noConsultations">
+      <table class="consultation-table ">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Psychiatrist</th>
+            <th>Consultation Time</th>
+            <th class="d-flex justify-content-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let consultation of consultations" class="consultation-item">
+            <td>{{ consultation.consultationdate }}</td>
+            <td>{{ consultation.psychiatrist.username }}</td>
+            <td>{{ consultation.startTime }}</td>
+            <td>
+              <!-- <button routerLink="/show/{{ consultation.idConsultation }}" class="action-button">Show</button> -->
+              <button routerLink="/editconsultation/{{ consultation.idConsultation }}" class="action-button">Edit</button>
+              <button routerLink="/deletec/{{ consultation.idConsultation }}" class="action-button">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+
+    <ng-template #noConsultations>
+      <p class="no-consultation-message">No consultations available.</p>
+    </ng-template>
+  </div>
+</div>

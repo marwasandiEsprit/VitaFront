@@ -1,0 +1,44 @@
+.formm {
+  background: rgb(27, 110, 204);
+  background: linear-gradient(
+    90deg,
+    rgb(39, 121, 214) 30%,
+    rgb(142, 195, 206) 100%
+  );
+  min-height: 500px;
+}
+.logform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 2.2vmax;
+}
+.pass {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.pass > input {
+  padding: 1vmax 4vmax;
+  box-sizing: border-box;
+  font: 400 1.2vmax cursive;
+  width: 100%;
+  padding-right: 1vmax;
+  outline: none;
+}
+.pass > i {
+  transform: translateX(2vmax);
+  font-size: 1.5vmax;
+  color: lightseagreen;
+}
+.btlog {
+  width: 50% !important;
+}
+.forget {
+
+  width: 100%;
+  padding-left: 65%;
+  margin-top: 7%;
+  font-size: 20px !important;
+}

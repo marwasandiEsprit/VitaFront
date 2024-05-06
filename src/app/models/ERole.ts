@@ -1,0 +1,4 @@
+export enum ERole {
+    ROLE_CLIENT = 'ROLE_CLIENT',
+  ROLE_NUTRITOINISTE =  'ROLE_NUTRITOINISTE'
+}

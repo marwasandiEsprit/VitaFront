@@ -1,0 +1,28 @@
+<div class="nutritionist-list">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center">Liste des nutritionnistes</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let nutritioniste of nutritionistes">
+          <div class="card nutritionist-card">
+            <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="card-img-top nutritionist-img" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ nutritioniste.nom }} {{ nutritioniste.prenom }}</h5>
+              <p class="card-text"><strong>Username : </strong>{{ nutritioniste.username }}</p>
+              <p class="card-text"><strong>Email : </strong>{{ nutritioniste.email }}</p>
+              <p class="card-text"><strong>Genre : </strong>{{ nutritioniste.gender }}</p>
+              <p class="card-text"><strong>Réalisations : </strong>{{ nutritioniste.achievments }}</p>
+              <p class="card-text"><strong>Peur : </strong>{{ nutritioniste.fears }}</p>
+              <p class="card-text"><strong>Âge : </strong>{{ nutritioniste.age }}</p>
+              <a href="#" class="btn btn-primary">Voir le profil</a>
+              <a href="/chat" class="btn btn-primary">Discuter</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

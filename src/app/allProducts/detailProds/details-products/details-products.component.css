@@ -1,0 +1,193 @@
+.mainSection {
+  display: flex;
+}
+
+.image-container {
+  flex: 1;
+  padding: 20px;
+}
+
+.content-box {
+  flex: 1;
+  padding: 20px;
+}
+
+.card-container {
+  flex: 1;
+  padding: 20px;
+}
+
+.product-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.product-details {
+  margin-bottom: 20px;
+}
+
+.detail {
+  margin-bottom: 10px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.value {
+  margin-left: 10px;
+}
+
+.add-to-cart-btn {
+  padding: 10px 20px;
+  background-color: #e68434;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #158f02;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.quantity-input {
+  width: 100px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.btn-warning {
+  color: #fff;
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+  border-color: #e0a800;
+}
+.ad-bar {
+  margin-bottom: 5% !important;
+  background: Orgb(0, 101, 219);
+  background: linear-gradient(
+    45deg,
+    rgba(24, 3, 3, 0.9) 50%,
+    rgb(230, 160, 48) 50%
+  );/* Background color of the ad bar */
+  padding: 10px; /* Adjust padding as needed */
+  text-align: center; /* Center the content horizontally */
+  display: flex; /* Use flexbox */
+  align-items: center; /* Align items vertically */
+  justify-content: space-between; /* Center items horizontally */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+
+.ad-bar img {
+  margin-right: 10px; 
+  max-width: 100%; 
+  max-height: 50px !important;/* Ensure the ad image doesn't exceed the width of its container */
+}
+
+
+.product-image {
+  transition: transform 0.3s ease-in-out; /* Add smooth transition effect */
+}
+
+.product-image:hover {
+  transform: scale(1.1); /* Increase the size of the image when hovered */
+  /* Calculate the origin based on the mouse position */
+}
+.caro{
+  display: flex;
+  justify-content: center;
+  
+}
+.carcol{
+  background: Orgb(0, 101, 219);
+  background: linear-gradient(
+    45deg,
+    rgba(24, 3, 3, 0.9) 50%,
+    rgb(230, 160, 48) 50%
+  );
+}
+.carousel {
+  margin-top: 20px; /* Adjust margin as needed */
+  width: 80%; /* Set the width of the carousel */
+  max-width: 500px; /* Set the maximum width of the carousel */
+ 
+  overflow: hidden; /* Hide overflow to prevent width change */
+}
+
+.carousel-inner {
+  display: flex; /* Use flexbox layout for carousel items */
+}
+
+.carousel-item {
+  flex: 0 0 auto; /* Ensure carousel items have a fixed width */
+}
+
+.carousel-inner img {
+  max-height: 300px; /* Adjust maximum height of the carousel images */
+  object-fit: cover; /* Ensure images cover the entire carousel area */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%; /* Adjust width of the controls */
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for captions */
+  color: white; /* Text color for captions */
+  padding: 10px; /* Padding for captions */
+}
+
+.carousel-caption h5,
+.carousel-caption p {
+  margin: 0; /* Remove default margins for caption elements */
+}
+.go-to-login {
+  padding: 10px 20px;
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.go-to-login:hover {
+  background-color: #158f02;
+}
+
+.imgurl{
+  display: flex;
+  image-rendering: optimizeQuality;
+  padding-left: 30%;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  color: black !important;
+}

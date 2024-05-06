@@ -1,0 +1,37 @@
+.rapport-details {
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rapport-details h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333333;
+  }
+  
+  .rapport-details p {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .rapport-details strong {
+    font-weight: bold;
+  }
+  
+  .rapport-details .username {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .return-button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

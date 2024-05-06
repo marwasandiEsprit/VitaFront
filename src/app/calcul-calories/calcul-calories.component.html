@@ -1,0 +1,133 @@
+<div class="container" id="plat-container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let plat of plats; let i = index">
+      <div class="card text-center mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{plat.name}}</h5>
+          <p class="card-text">{{plat.nbCalories}} calories dans {{plat.quantity}} Gramme </p>
+          <div class="icons-container">
+            <i class="fa fa-trash card-icon" aria-hidden="true" (click)="deletePlat(plat.idPlat)"></i>
+            <i *ngIf="!plat.advice" class="fa fa-info card-icon" aria-hidden="true" (click)="GiveAdvice(plat)"></i>
+
+            <i *ngIf="plat.advice"class="fa fa-times-circle" aria-hidden="true" (click)="CloseAdvice(plat)"></i>
+          </div>
+          <div *ngIf="plat.advice">
+       
+            <form (ngSubmit)="GetAdvice(plat.idPlat)">
+              <h2>Besoin De Conseils?</h2>
+              <label for="poids">Ton poids en Kilogramme</label>
+              <input type="number" class="form-control" id="poids" [(ngModel)]="poids" name="poids" required>
+              <label for="taille">Ta Taille en Centimétre</label>
+              <input type="number" class="form-control" id="taille" [(ngModel)]="taille" name="taille" required>
+              <label for="genre" class="form-label">Ton Genre</label>
+              <select class="form-select" [(ngModel)]="genre">
+                <option [value]="homme">Homme</option>
+                <option [value]="femme">Femme</option>
+              </select>
+              <label for="age">Ton Age</label>
+              <input type="number" class="form-control" id="age" [(ngModel)]="age" name="age" required>
+              <button type="submit" class="btn btn-primary">Prendre Conseils</button>
+            </form>
+            <div *ngIf="GetAd" class="mt-3 alert alert-info"> 
+              Votre score IMC est égale à {{yourIMC}}. <br>
+              On vous donne ces conseils pour ce  plat({{plat.name}}) : <br>
+              <ul>
+                <li> Nombre maximum de consommation : {{conseilAdapted.maxQuantite}} Grammes/jour</li>
+                <li> Nombre minimal de consommation : {{conseilAdapted.minQauntite}}Grammes/jour</li>
+                <li> Conseils Supplumentaires : {{conseilAdapted.conseil}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button *ngIf="IsNutrio" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPlatModal">
+    Ajouter un plat
+  </button>
+  <div class="modal fade" id="addPlatModal" tabindex="-1" aria-labelledby="addPlatModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addPlatModalLabel">Ajouter un plat</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="addPlat()">
+            <div class="form-group">
+              <label for="name">Nom du plat</label>
+              <input type="text" class="form-control" id="name" [(ngModel)]="newPlat.name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="quantity">Quantité en Grammes</label>
+              <input type="number" class="form-control" id="quantity" [(ngModel)]="newPlat.quantity" name="quantity" required>
+            </div>
+            <div class="form-group">
+              <label for="nbCalories">Nombre de calories</label>
+              <input type="number" class="form-control" id="nbCalories" [(ngModel)]="newPlat.nbCalories" name="nbCalories" required>
+            </div>
+            <div class="form-group" *ngFor="let conseil of conseils; let i = index;">
+              <h4>Pour les personnes ayant un IMC {{getConseilTaille(conseil.taille)}}</h4>
+              <label for="maxQuantite">Quelle est la quantité maximale à consomme(Grammes/jour)?</label>
+              <input type="number" class="form-control" id="maxQuantite" [(ngModel)]="conseil.maxQuantite" name="maxQuantite{{i}}" required>
+        
+              <label for="minQuantite">Quelle est la quantité minimale à consomme(Grammes/jour)?</label>
+              <input type="number" class="form-control" id="minQuantite" [(ngModel)]="conseil.minQauntite" name="minQuantite{{i}}" required>
+        
+              <label for="conseil">Conseil à suivre ?</label>
+              <input type="text" class="form-control" id="conseil" [(ngModel)]="conseil.conseil" name="conseil{{i}}" required>
+            </div>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Ajouter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div>
+  <button *ngIf="!calcul1" class="btn btn-success mt-3 add-button" (click)="OpenCalcullator()">Calculer Vos Calories Cosnommées Aujourd'hui</button>
+</div>
+
+  <div class="row mt-3" *ngIf="calcul">
+    <div class="col-md-12 calculator-container">
+      <div class="calcullclos">
+        <h2>Calculateur de les calories consomées aujourd'hui : </h2>
+        <i class="fa fa-times-circle" aria-hidden="true" (click)="CloseCalculator()"></i>
+      </div>
+      <div class="mb-3">
+        <label for="plat" class="form-label">Plats</label>
+        <select class="form-select" [(ngModel)]="selectedPlat">
+          <option *ngFor="let plat of plats" [value]="plat?.idPlat">{{plat?.name}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="quantite" class="form-label">Quantité(En Gramme)</label>
+        <input type="number" class="form-control" [(ngModel)]="selectedQuantity" placeholder="Quantité">
+      </div>
+      <button class="btn btn-primary" (click)="addPlatQuantite()">Ajouter</button>
+    
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nom du plat</th>
+            <th>Quantité(En Gramme)</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let platQuantite of platsQuantites.platsQuantity,let i = index">
+            <td>{{ getPlatNameById(platQuantite?.platId)}}</td>
+            <td>{{platQuantite?.quantity}}</td>
+            <td><i class="bi bi-trash" (click)="deletePlatQuantite(i)"></i></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-success" (click)="calculateCalories()">Calculer les calories</button>
+      <div *ngIf="result" class="mt-3 alert alert-info">
+        Le nombre de calories consommées est : {{ result }}
+      </div>
+    </div>
+  </div>
+  
+
+</div>

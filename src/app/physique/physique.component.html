@@ -1,0 +1,63 @@
+<div>
+    <section id="phys">
+        <div class="">
+          <div class="row ">
+            <div class="col-lg-10 mt-2">
+                <div class="premuium row">
+              <h1 class=" fw-bolder mb-4 text-center text-white">Or Try Our Premuim Version</h1>
+              <a class="aaa text-center" href="cook">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Subscribe
+              </a>
+            </div>
+            </div>
+            <div class="col-lg-8 mb-4 mt-2">
+              <p class="logo text-black ">
+                <!-- We provide you with the ability to work and complete your tasks. -->
+                Enjoy Our Workout 
+              </p>
+    
+              <div class="buttons d-flex justify-content-center">
+                <div class="App"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="search-container">
+    
+    <select class="filter-select" id="difficulty">
+        <option value="">Select Difficulty</option>
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+    </select>
+    <select class="filter-select" id="body-part">
+        <option value="">Select Body Part</option>
+        <option value="arms">Arms</option>
+        <option value="legs">Legs</option>
+        <option value="core">Core</option>
+        <option value="back">Back</option>
+        <option value="chest">Chest</option>
+    </select>
+    <button class="search-button" onclick="search()">Search</button>
+</div>
+
+<script>
+    function search() {
+        var query = document.querySelector('.search-bar').value;
+        var difficulty = document.getElementById('difficulty').value;
+        var bodyPart = document.getElementById('body-part').value;
+
+        // Perform search based on query, difficulty, and body part
+        // You can customize this function according to your needs
+        console.log("Search Query: " + query);
+        console.log("Difficulty: " + difficulty);
+        console.log("Body Part: " + bodyPart);
+    }
+</script>
+</div>

@@ -1,0 +1,10 @@
+<div *ngIf="consultation" class="rapport-details">
+  <h2>Consultation Details</h2>
+  <div>
+    <p><strong>Start Time:</strong> {{ consultation.startTime }}</p>
+    <p><strong>Consultation Date:</strong> {{ consultation.consultationdate }}</p>
+    <p><strong>Psychiatrist:</strong> {{ consultation.psychiatrist.username }}</p>
+    <p><strong>Client:</strong> {{ consultation.client.username }}</p>
+  </div>
+  <button routerLink="/consultations" class="return-button">Return</button>
+</div>
