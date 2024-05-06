@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="sidebar text-center">
+    <h2>Consultations</h2>
+    <a class="styled-button" [routerLink]="'/rap'">Rapports</a>
+   
+  </div>
+  <div class="content">
   <h2 class="title">List of Consultations</h2>
 
   <div class="filter-container">
@@ -31,4 +37,5 @@
   <ng-template #noConsultations>
     <p class="no-consultation-message">No consultations available.</p>
   </ng-template>
+</div>
 </div>
