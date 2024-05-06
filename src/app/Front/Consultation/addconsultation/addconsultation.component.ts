@@ -18,6 +18,8 @@ export class AddconsultationComponent implements OnInit {
   availableTimeSlots!: string[];
   currentDate: Date = new Date();
   redLinePosition: number = 0;
+  errorMessage: string = ''; // Add error message property
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -135,6 +137,7 @@ export class AddconsultationComponent implements OnInit {
       (error) => {
         // Handle error
         console.error('Failed to add consultation', error);
+        alert('Consultation time is not available.Please choose another time '); // Show alert message
       }
     );
   }
