@@ -88,7 +88,11 @@ const routes: Routes = [
   {
     path: 'showconsultationadmin/:id',
     component: ShowconsultationadminComponent,
+   
   },
+  { path: 'showconsultationpsy/:id',
+  component: ShowconsultationpsychiatreComponent},
+
   { path: 'deletec/:id', component: DeleteconsultationComponent },
   { path: 'addrapport', component: AddrapportpsyComponent },
   { path: 'editrapport/:id', component: UpdaterapportpsyComponent },

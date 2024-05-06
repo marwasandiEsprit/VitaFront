@@ -45,7 +45,7 @@ export class AddconsultationComponent implements OnInit {
     this.consultationForm.get('consultationDate')?.valueChanges.subscribe((selectedDate) => {
       if (selectedDate) {
         const modifiedDate = new Date(selectedDate); // Create a new Date object with the selectedDate
-        modifiedDate.setDate(modifiedDate.getDate() + 1); // Add a day to the date
+        modifiedDate.setDate(modifiedDate.getDate()); // Add a day to the date
         const formattedDate = this.formatDate(modifiedDate); // Format the modified date
         console.log("date", formattedDate);
         this.loadAvailableTimeSlots(formattedDate, psychiatristId);
