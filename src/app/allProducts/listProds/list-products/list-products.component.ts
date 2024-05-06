@@ -1,4 +1,7 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsService } from 'src/app/components/products.service';
 import { FoodDataServiceComponent } from 'src/app/food-data-service/food-data-service.component';
@@ -7,53 +10,70 @@ import { Products } from 'src/app/models/products';
 @Component({
   selector: 'app-list-products',
   templateUrl: './list-products.component.html',
-  styleUrls: ['./list-products.component.css']
+  styleUrls: ['./list-products.component.css'],
 })
-export class ListProductsComponent implements OnInit{
+export class ListProductsComponent implements OnInit {
   products: Products[] = [];
   currentPage = 1;
   itemsPerPage = 12;
-  searchQuery: string = ''; 
+  searchQuery: string = '';
   searchResults: any[] = [];
- 
+  filteredProducts: Products[] = [];
+  selectedFood: any;
+  showChatbot: boolean = false;
 
-
-  selectedFood: any; 
-  constructor(private productService: ProductsService,private router: Router, private foodDataService:FoodDataServiceComponent ) { }
+  constructor(
+    private productService: ProductsService,
+    private router: Router,
+    private foodDataService: FoodDataServiceComponent
+  ) {}
 
   ngOnInit(): void {
-    
-    console.log('ListPsychologueComponent initialized');
-
     this.getAllProducts();
-    // this.renderBarChart('count'); 
   }
 
-  
-  
- 
+  toggleChatbot(): void {
+    this.showChatbot = !this.showChatbot;
+  }
 
   getAllProducts(): void {
     this.productService.getAllProducts().subscribe(
-      
       (data) => {
         this.products = data;
-       
+        this.filteredProducts = [...this.products];
+        this.filterProducts(); // Call filterProducts after retrieving products
       },
       (error: any) => {
         console.error('Failed to retrieve products:', error);
       }
-      
     );
-    console.log('listProdsComponent initialized');
   }
+
+  filterProducts(): void {
+    if (this.searchQuery.trim() === '') {
+      // If search query is empty, display all products
+      this.filteredProducts = [...this.products];
+    } else {
+      // Filter products based on search query
+      this.filteredProducts = this.products.filter((product) => {
+        return (
+          product?.prodName?.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+          product?.typeProd?.toLowerCase().includes(this.searchQuery.toLowerCase())
+        );
+      });
+    }
+  }
+
   get totalPages(): number {
-    return Math.ceil(this.products.length / this.itemsPerPage);
+    return Math.ceil(this.filteredProducts.length / this.itemsPerPage);
   }
 
   get paginatedProducts(): Products[][] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    return this.chunkArray(this.products.slice(startIndex, startIndex + this.itemsPerPage), 4);
+    return this.chunkArray(
+      this.filteredProducts.slice(startIndex, startIndex + this.itemsPerPage),
+      4
+    );
   }
 
   chunkArray(array: any[], size: number): any[][] {
@@ -76,26 +96,24 @@ export class ListProductsComponent implements OnInit{
     }
   }
 
+  onSearchChange(): void {
+    this.filterProducts(); // Call filterProducts whenever search query changes
+    this.currentPage = 1; // Reset current page when search query changes
+  }
+
   searchFood(query: string): void {
     this.foodDataService.searchFood(query).subscribe(
       (response) => {
         console.log('Search results:', response);
-        this.searchResults = response.foods; 
+        this.searchResults = response.foods;
       },
       (error) => {
         console.error('Error searching food items:', error);
       }
     );
   }
+
   showFoodNutrients(food: any): void {
     this.selectedFood = food; // Set the selected food item
   }
- 
- 
-  
-
- 
- 
- 
-  
 }

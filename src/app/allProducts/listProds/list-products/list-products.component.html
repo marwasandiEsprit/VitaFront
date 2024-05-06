@@ -10,13 +10,7 @@
 
     <div>
       <div class="btnn rounded-pill">
-        <Input
-          class="sea"
-          icon="search"
-          placeholder="Search..."
-          onChange=""
-          value=""
-        />
+        <input type="text" [(ngModel)]="searchQuery" (input)="onSearchChange()" placeholder="Search products by name or type...">
       </div>
     </div>
   </div>
@@ -24,38 +18,16 @@
     <img src="../../assets/images/prod1.png" alt="home" />
   </div>
 </div>
-<!-- your-component.component.html -->
-<div class="search-container">
-  <input type="text" [(ngModel)]="searchQuery" placeholder="Enter food item...">
-  <button (click)="searchFood(searchQuery)">Search</button>
-</div>
 
-<div *ngIf="searchResults && searchResults.length > 0">
-  <h2>Search Results:</h2>
-  <ul class="search-results">
-    <li *ngFor="let item of searchResults; let i = index">
-      <div *ngIf="i < 5"> <!-- Limit to the first five results -->
-        
-        <h3>{{ item.description }} - {{ item.foodNutrients[0]?.nutrientName }}: {{ item.foodNutrients[0]?.value }} {{ item.foodNutrients[0]?.unitName }}</h3>
-        <!-- Display other relevant information here -->
-      </div>
-    </li>
-  </ul>
-</div>
-
-<div *ngIf="searchResults && searchResults.length === 0">
-  <p>No results found.</p>
-</div>
-
-<div *ngIf="!searchResults">
-  <p>Loading...</p>
-</div>
-
-
-<div class="">
-  <ng-container *ngFor="let prodsChunk of paginatedProducts">
-    <div class="row aaa">
-      <div *ngFor="let prods of prodsChunk" class="col-md-3">
+<div *ngIf="filteredProducts.length > 0; else noProducts">
+  <!-- <div class="pagination">
+    <button class="pagination-button" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button class="pagination-button" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div> -->
+  <div class="row mt-5">
+    <ng-container *ngFor="let prodsChunk of paginatedProducts">
+      <div class="col-md-3" *ngFor="let prods of prodsChunk">
         <div class="card caP">
           <img [src]="prods.imageUrl" class="card-img-top" alt="Product Image"/>
           <div class="card-body bod">
@@ -68,9 +40,15 @@
           </div>
         </div>
       </div>
-    </div>
-  </ng-container>
+    </ng-container>
+  </div>
 </div>
+
+<!-- If there are no filtered products -->
+<ng-template #noProducts>
+  <p>No products found.</p>
+</ng-template>
+
 <!-- Your existing HTML code -->
 <div class="pagination">
   <button class="pagination-button" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
@@ -78,8 +56,9 @@
   <button class="pagination-button" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
 </div>
 
+<button class="chatbot-bubble-button" (click)="toggleChatbot()">
+  <span class="chatbot-avatar">🤖</span>
+</button>
 
-
-
-
-
+<!-- Chatbot component (conditionally displayed) -->
+<app-chatbot-qa *ngIf="showChatbot" (close)="showChatbot = false"></app-chatbot-qa>

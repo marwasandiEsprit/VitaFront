@@ -1,0 +1,50 @@
+<div class="center-container">
+  <div class="chatbot-container">
+    <!-- Close button -->
+    <div class="header-container">
+        <!-- Close button -->
+        <div class="chatbot-header">
+            <span class="chatbot-avatar">🤖</span>
+            <h2>Chatbot</h2>
+        </div>
+        <div class="close-button">
+            <button class="btn btn-danger rounded-pill" (click)="close.emit()">X</button>
+        </div>
+        <!-- Chatbot header -->
+        
+    </div>
+    
+
+    <!-- Chatbot conversation area -->
+    <div class="chatbot-conversation">
+      <!-- Displayed questions for the current page -->
+      <div
+        class="question-item"
+        *ngFor="let qa of getPaginatedQuestionAnswers()"
+        (click)="selectQuestion(qa)"
+      >
+        <span class="question-text">{{ qa.question }}</span>
+      </div>
+
+      <!-- Pagination controls -->
+      <div class="pagination-controls">
+        <button (click)="previousPage()"> < </button>
+        <span class="current-page">{{ currentPage }}</span>
+        <button (click)="nextPage()">></button>
+      </div>
+
+      <!-- Thinking animation -->
+      <div class="typing-indicator" *ngIf="selectedQuestion && isThinking">
+        Bot is thinking...
+      </div>
+
+      <!-- Selected question and answer -->
+      <div *ngIf="selectedQuestion && !isThinking" class="selected-question">
+        <h3>Selected Question:</h3>
+        <p>{{ selectedQuestion.question }}</p>
+        <h3>Answer:</h3>
+        <p>{{ selectedQuestion.answer }}</p>
+      </div>
+    </div>
+  </div>
+</div>

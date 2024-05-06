@@ -70,6 +70,8 @@ import { UsersstatisticComponent } from './usersstatistic/usersstatistic.compone
 import { EditprofileComponent } from './editprofile/editprofile.component';
 
 import { FoodDataServiceComponent } from './food-data-service/food-data-service.component';
+import { ChatbotQAComponent } from './chatbot-qa/chatbot-qa.component';
+import { AddQuestionsAComponent } from './Dashs/add-questions-a/add-questions-a.component';
 // import { CommunityListComponent } from './community/community-list/community-list.component';
 // import { CommunityPostsComponent } from './community/community-posts/community-posts.component';
 // import { CommunityPostDetailsComponent } from './community/community-post-details/community-post-details.component';
@@ -153,8 +155,9 @@ import { FoodDataServiceComponent } from './food-data-service/food-data-service.
     // ListRecetteComponent,
     ProfileComponent,
     UsersstatisticComponent,
-    EditprofileComponent
-
+    EditprofileComponent,
+    ChatbotQAComponent,
+    AddQuestionsAComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,223 +1,304 @@
 .App {
-    font-family: sans-serif;
-    text-align: center;
-  }
-  .container {
-    margin: auto;
-    margin-top: 3%;
-  
-    justify-content: space-between;
-  }
-  .mainSection {
-    display: flex;
-  
-    justify-content: space-around;
-    align-items: center;
-  
-    background: Orgb(0, 101, 219);
-    background: linear-gradient(
-      45deg,
-      rgba(0, 0, 0, 0.9) 50%,
-      rgba(255, 193, 71, 1) 50%
-    );
-    min-height: 500px;
-  }
-  .contentBox {
-    margin-left: 2%;
-    width: 40%;
-  
-    padding-left: 1rem;
-  }
-  .contentBox h1 {
-    font-size: 2.5rem;
-    color: #301934;
-  }
-  .contentBox p {
-    font-size: 1.5rem;
-    margin: 1rem 0;
-    font-family: "Poppins", sans-serif;
-    font-style: italic;
-  }
-  .btnBox {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 3rem;
-  }
-  .btnn {
-    border: 8px solid transparent;
-    border-radius: 10rem;
-    background-image: linear-gradient(#fff, #fff),
-      radial-gradient(circle at bottom right, purple, orange);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    margin-right: 0%;
-  }
-  .sea{
-    /* width: 576px!important; */
-    width: 36rem !important;
-  }
-  .text {
-    font-size: 1.2rem;
-    padding: 0.5em 1.5rem;
-    color: #c91fe8;
-  }
-  .imgContainer {
-    width: 50%;
-  }
-  .imgContainer img {
-    width: 90%;
-    margin: 0 auto;
-    display: block;
-  }
-  .bgcol {
-    background-color: #fbeee6;
-  }
-  .flex {
-    flex-wrap: wrap;
-    padding: 1%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  .cardres {
-    display: grid !important;
-    margin-top: -26px !important;
-    position: absolute !important;
-    width: 38% !important;
-    border: 17px solid transparent;
-    border-radius: 10rem;
-    margin-left: 6px;
-  }
-  
-  .search-box {
-    max-width: 300px;
-    margin: 0 auto;
-    position: relative;
-  }
-  .search-box input {
-    width: 100%;
-    height: 30px;
-  }
-  .search-box ul {
-    position: absolute;
-    top: 30px;
-    left: 0px;
-    width: 100%;
-    list-style-type: none;
-    border: 1px solid #000;
-  }
-  .search-box ul li {
-    padding: 10px;
-    border-bottom: 1px solid #000;
-  }
-  
-  .bttr {
-    width: 200px;
-    color: aqua;
-  }
-  
- 
-  .form {
-    width: 300px;
-    margin: 0 auto;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input[type="text"],
-  input[type="number"],
-  input[type="email"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .submit-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  
-  .bod{
-    background-color: rgb(255, 255, 255);
-  }
-  /* Add these styles to ensure equal sizing for the cards and images */
-.card.caP {
-  flex-basis: 20%; /* Adjust the width to fit four cards per row */
-  margin-right: 1%; /* Adjust the spacing between cards */
+  font-family: sans-serif;
+  text-align: center;
 }
+.container {
+  margin: auto;
+  margin-top: 3%;
 
-.card.caP .card-img-top {
-  width: 150px; /* Ensure the image fills the entire width of the card */
-  height: auto; /* Maintain aspect ratio */
-   margin-left: 100px;
+  justify-content: space-between;
 }
-
-.card.caP .card-body {
-  padding: 1rem; /* Add padding to the card body */
-}
-
-.card.caP .card-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-.card.caP .card-text {
-  font-size: 1rem;
-}
-
-.card.caP .btn-primary {
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-}
-.aaa{
-  margin-top: 50px !important;
-}
-.pagination {
+.mainSection {
   display: flex;
-  justify-content: center;
+
+  justify-content: space-around;
   align-items: center;
-  margin-top: 20px; /* Adjust as needed */
+
+  background: Orgb(0, 101, 219);
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.9) 50%,
+    rgba(255, 193, 71, 1) 50%
+  );
+  min-height: 500px;
+}
+.contentBox {
+  margin-left: 2%;
+  width: 40%;
+
+  padding-left: 1rem;
+}
+.contentBox h1 {
+  font-size: 2.5rem;
+  color: #301934;
+}
+.contentBox p {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+}
+.btnBox {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3rem;
+}
+.btnn {
+  border: 8px solid transparent;
+  border-radius: 10rem;
+  background-image: linear-gradient(#fff, #fff),
+    radial-gradient(circle at bottom right, purple, orange);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  margin-right: 0%;
+}
+.sea{
+  /* width: 576px!important; */
+  width: 36rem !important;
+}
+.text {
+  font-size: 1.2rem;
+  padding: 0.5em 1.5rem;
+  color: #c91fe8;
+}
+.imgContainer {
+  width: 50%;
+}
+.imgContainer img {
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+}
+.bgcol {
+  background-color: #fbeee6;
+}
+.flex {
+  flex-wrap: wrap;
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.cardres {
+  display: grid !important;
+  margin-top: -26px !important;
+  position: absolute !important;
+  width: 38% !important;
+  border: 17px solid transparent;
+  border-radius: 10rem;
+  margin-left: 6px;
 }
 
-.pagination-button {
-  padding: 10px 20px;
-  margin: 0 5px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.search-box {
+  max-width: 300px;
+  margin: 0 auto;
+  position: relative;
+}
+.search-box input {
+  width: 100%;
+  height: 30px;
+}
+.search-box ul {
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  width: 100%;
+  list-style-type: none;
+  border: 1px solid #000;
+}
+.search-box ul li {
+  padding: 10px;
+  border-bottom: 1px solid #000;
 }
 
-.pagination-button:disabled {
-  opacity: 0.5; /* Adjust to change disabled button opacity */
-  cursor: not-allowed;
+.bttr {
+  width: 200px;
+  color: aqua;
 }
-/* your-component.component.css */
-.search-container {
+
+
+.form {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.form-group {
   margin-bottom: 20px;
 }
 
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+.bod{
+  background-color: rgb(255, 255, 255);
+}
+/* Add these styles to ensure equal sizing for the cards and images */
+.card.caP {
+flex-basis: 20%; /* Adjust the width to fit four cards per row */
+margin-right: 1%; /* Adjust the spacing between cards */
+}
+
+.card.caP .card-img-top {
+width: 150px; /* Ensure the image fills the entire width of the card */
+height: auto; /* Maintain aspect ratio */
+ margin-left: 100px;
+}
+
+.card.caP .card-body {
+padding: 1rem; /* Add padding to the card body */
+}
+
+.card.caP .card-title {
+font-size: 1.25rem;
+font-weight: bold;
+}
+
+.card.caP .card-text {
+font-size: 1rem;
+}
+
+.card.caP .btn-primary {
+font-size: 1rem;
+padding: 0.5rem 1rem;
+}
+.aaa{
+margin-top: 50px !important;
+}
+.pagination {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 20px; /* Adjust as needed */
+}
+
+.pagination-button {
+padding: 10px 20px;
+margin: 0 5px;
+background-color: #007bff;
+color: #fff;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.pagination-button:disabled {
+opacity: 0.5; /* Adjust to change disabled button opacity */
+cursor: not-allowed;
+}
+/* your-component.component.css */
+.search-container {
+margin-bottom: 20px;
+}
+
 .search-results {
-  list-style-type: none;
-  padding: 0;
+list-style-type: none;
+padding: 0;
 }
 
 .search-results li {
-  margin-bottom: 10px;
+margin-bottom: 10px;
+}
+
+/* your-component.component.css */
+
+/* Style for the chatbot bubble */
+.chatbot-bubble {
+position: fixed;
+bottom: 20px;
+right: 20px;
+width: 60px;
+height: 60px;
+background-color: #007bff;
+color: white;
+border-radius: 50%;
+text-align: center;
+line-height: 60px;
+cursor: pointer;
+transition: transform 0.3s ease;
+z-index: 999;
+}
+
+.chatbot-bubble:hover {
+transform: scale(1.1);
+}
+
+/* Style for the chatbot avatar inside the bubble */
+.chatbot-avatar {
+font-size: 24px;
+}
+
+/* Style for the toggle button */
+.toggle-chatbot-button {
+position: fixed;
+bottom: 20px;
+right: 100px; /* Adjust the position as needed */
+background-color: #007bff;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+z-index: 999;
+}
+
+.toggle-chatbot-button:hover {
+background-color: #0056b3;
+}
+/* your-component.component.css */
+
+/* Style for the chatbot bubble button */
+.chatbot-bubble-button {
+position: fixed;
+bottom: 20px;
+right: 20px;
+width: 60px;
+height: 60px;
+background-color: #007bff;
+color: white;
+border: none;
+border-radius: 50%;
+text-align: center;
+line-height: 60px;
+font-size: 24px;
+cursor: pointer;
+z-index: 999;
+transition: transform 0.3s ease;
+}
+
+.chatbot-bubble-button:hover {
+transform: scale(1.1);
+}
+
+/* Style for the chatbot component */
+app-chatbot-qa {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 1000;
+
 }
 

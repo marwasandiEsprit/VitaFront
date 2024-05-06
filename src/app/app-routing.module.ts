@@ -49,6 +49,8 @@ import { ListpsyadminComponent } from './Back/listpsyadmin/listpsyadmin.componen
 import {UsersstatisticComponent} from "./usersstatistic/usersstatistic.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {EditprofileComponent} from "./editprofile/editprofile.component";
+import { AddQuestionsAComponent } from './Dashs/add-questions-a/add-questions-a.component';
+import { ChatbotQAComponent } from './chatbot-qa/chatbot-qa.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -71,6 +73,8 @@ const routes: Routes = [
   { path: 'edituser/:id', component: ModifierUserComponent },
   { path: 'verify', component: VerifiactionComponent },
   { path: 'quote', component: AddQuoteComponent },
+  { path: 'addQA', component: AddQuestionsAComponent },
+  { path: 'chatbotQA', component: ChatbotQAComponent },
   { path: 'chat', component: ChatComponent },
   { path: 'CalculCalories', component: CalculCaloriesComponent },
   { path: 'listNutrio', component: ListNutrionistesComponent },

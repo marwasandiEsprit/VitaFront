@@ -1,0 +1,134 @@
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.chatbot-container {
+    font-family: Arial, sans-serif;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    padding: 20px;
+    width: 400px;
+    background-color: #ffffff;
+    
+}
+
+.header-container {
+    display: flex; /* or use display: grid; */
+    align-items: center; /* Align items vertically */
+    justify-content: space-between;
+}
+
+.close-button {
+    margin-right: 10px; /* Adjust margin as needed */
+}
+
+
+.chatbot-avatar {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+/* Chatbot conversation area */
+.chatbot-conversation {
+    margin-top: 20px;
+}
+
+/* Displayed questions */
+.question-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #44b5f2;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.question-item:hover {
+    background-color: #e0e0e0;
+}
+
+.question-text {
+    font-weight: bold;
+}
+
+/* Pagination controls */
+.pagination-controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-controls button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.pagination-controls button:hover {
+    background-color: #0056b3;
+}
+
+.current-page {
+    margin: 0 10px;
+}
+
+/* Selected question and answer */
+.selected-question {
+    margin-top: 20px;
+}
+
+.selected-question h3 {
+    margin-bottom: 5px;
+}
+
+/* Thinking animation */
+@keyframes typing {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.typing-indicator {
+    margin-top: 10px;
+    animation: typing 1s infinite;
+}
+
+.typing-indicator:before {
+    content: '|';
+    margin-right: 5px;
+}
+/* app-chatbot-qa.component.css */
+
+/* Close button style */
+.close-chatbot-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+/* Chatbot content style */
+.chatbot-content {
+    position: relative;
+    padding: 20px;
+    background-color: #32a6ef;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.close-button{
+    display: flex;
+    justify-content: end;
+}
