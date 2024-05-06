@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StorageService } from 'src/app/_services/storage.service';
-import { ProductsService } from 'src/app/components/products.service';
-import { Products } from 'src/app/models/products';
+import { QuotesService } from 'src/app/components/quotes.service';
+import { Quotes } from 'src/app/models/quotes';
 
 @Component({
-  selector: 'app-edit-products',
-  templateUrl: './edit-products.component.html',
-  styleUrls: ['./edit-products.component.css']
+  selector: 'app-delete-quote',
+  templateUrl: './delete-quote.component.html',
+  styleUrls: ['./delete-quote.component.css']
 })
-export class EditProductsComponent {
+export class DeleteQuoteComponent {
   id: number=0;
-  product: Products = new Products();
+  quote: Quotes = new Quotes();
   status: boolean = false;
   private roles: string[] = [];
   isLoggedIn = false;
@@ -22,32 +22,37 @@ export class EditProductsComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private productService: ProductsService,
+    private quoteService: QuotesService,
     private storageService: StorageService
-
   ) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    
 
-    this.productService.getproductId(this.id).subscribe(data=>{
-      this.product= data;
-    })
+    this.quoteService.getproductId(this.id).subscribe(data => {
+      this.quote = data;
+    });
+
     this.isLoggedIn = this.storageService.isLoggedIn();
     if (this.isLoggedIn) {
       const user = this.storageService.getUser();
       this.roles = user.roles;
     }
   }
+
   isUserRoleAdmin(): boolean {
     return this.roles.includes('ROLE_ADMIN');
   }
+  confirmDelete(): void {
+    if (confirm('Are you sure you want to delete this Quote?')) {
+      this.deleteProduct();
+    }
+  }
+  deleteProduct(): void {
+    this.quoteService.deleteQuote(this.id).subscribe(() => {
 
-  UpdateProduct(): void {
-    this.productService.editProduct(this.id, this.product).subscribe(() => {
-  
-      this.router.navigate(['/dashProds/']);
+      this.router.navigate(['/allquotes']); 
     });
   }
+
 }

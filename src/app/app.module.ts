@@ -72,6 +72,13 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
 import { FoodDataServiceComponent } from './food-data-service/food-data-service.component';
 import { ChatbotQAComponent } from './chatbot-qa/chatbot-qa.component';
 import { AddQuestionsAComponent } from './Dashs/add-questions-a/add-questions-a.component';
+import { AllQuotesComponent } from './Dashs/allQuotes/all-quotes/all-quotes.component';
+import { QuotesComponent } from './quotes/quotes/quotes.component';
+import { DeleteQuoteComponent } from './Dashs/deleteQuote/delete-quote/delete-quote.component';
+import { EditeQuoteComponent } from './Dashs/editeQuote/edite-quote/edite-quote.component';
+import { DeleteQuestionComponent } from './Dashs/deleteQuestions/delete-question/delete-question.component';
+import { EditeQuestionComponent } from './Dashs/editeQuestions/edite-question/edite-question.component';
+import { AllQuestionsComponent } from './Dashs/allquestions/all-questions/all-questions.component';
 // import { CommunityListComponent } from './community/community-list/community-list.component';
 // import { CommunityPostsComponent } from './community/community-posts/community-posts.component';
 // import { CommunityPostDetailsComponent } from './community/community-post-details/community-post-details.component';
@@ -158,6 +165,13 @@ import { AddQuestionsAComponent } from './Dashs/add-questions-a/add-questions-a.
     EditprofileComponent,
     ChatbotQAComponent,
     AddQuestionsAComponent,
+    AllQuotesComponent,
+    QuotesComponent,
+    DeleteQuoteComponent,
+    EditeQuoteComponent,
+    DeleteQuestionComponent,
+    EditeQuestionComponent,
+    AllQuestionsComponent,
   ],
   imports: [
     BrowserModule,

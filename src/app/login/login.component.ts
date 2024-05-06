@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
 
           if (this.storageService.isAdminLoggedIn())
         {
-          this.router.navigate(["dash"]);
+          this.router.navigate(["listUser"]);
         }
         if (this.storageService.isClientLoggedIn())
         {

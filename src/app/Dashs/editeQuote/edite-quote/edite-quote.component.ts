@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StorageService } from 'src/app/_services/storage.service';
-import { ProductsService } from 'src/app/components/products.service';
-import { Products } from 'src/app/models/products';
+import { QuotesService } from 'src/app/components/quotes.service';
+import { Quotes } from 'src/app/models/quotes';
 
 @Component({
-  selector: 'app-edit-products',
-  templateUrl: './edit-products.component.html',
-  styleUrls: ['./edit-products.component.css']
+  selector: 'app-edite-quote',
+  templateUrl: './edite-quote.component.html',
+  styleUrls: ['./edite-quote.component.css']
 })
-export class EditProductsComponent {
+export class EditeQuoteComponent {
   id: number=0;
-  product: Products = new Products();
+  product: Quotes = new Quotes();
   status: boolean = false;
   private roles: string[] = [];
   isLoggedIn = false;
@@ -22,18 +22,18 @@ export class EditProductsComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private productService: ProductsService,
+    private quoteService: QuotesService,
     private storageService: StorageService
-
   ) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     
 
-    this.productService.getproductId(this.id).subscribe(data=>{
+    this.quoteService.getproductId(this.id).subscribe(data=>{
       this.product= data;
     })
+
     this.isLoggedIn = this.storageService.isLoggedIn();
     if (this.isLoggedIn) {
       const user = this.storageService.getUser();
@@ -43,11 +43,11 @@ export class EditProductsComponent {
   isUserRoleAdmin(): boolean {
     return this.roles.includes('ROLE_ADMIN');
   }
-
   UpdateProduct(): void {
-    this.productService.editProduct(this.id, this.product).subscribe(() => {
+    this.quoteService.editProduct(this.id, this.product).subscribe(() => {
   
-      this.router.navigate(['/dashProds/']);
+      this.router.navigate(['/allquotes/']);
     });
   }
 }
+

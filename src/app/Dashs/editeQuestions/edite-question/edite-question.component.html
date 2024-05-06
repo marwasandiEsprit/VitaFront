@@ -125,44 +125,28 @@
           </ul>
         </div>
       </nav>
-
 <div class="edit-product-container">
-    <h3>Edit Product</h3>
+    <h3>Edit Question and Answers</h3>
     <div class="form-group">
-        <label for="productId">Product ID:</label>
-        <span>{{product.idProducts}}</span>
+        <label for="productId">Question ID:</label>
+        <span>{{product.questionsid}}</span>
     </div>
     <div class="form-group">
-        <label for="productName">Name:</label>
-        <input type="text" id="productName" [(ngModel)]="product.prodName" placeholder="Enter Name"/>
+        <label for="productName">Question:</label>
+        <input type="text" id="productName" [(ngModel)]="product.question" placeholder="Enter Title"/>
     </div>
     <div class="form-group">
-        <label for="productType">Type:</label>
-        <input type="text" id="productType" [(ngModel)]="product.typeProd" placeholder="Enter Type"/>
+        <label for="productType">Answer:</label>
+        <input type="text" id="productType" [(ngModel)]="product.answer" placeholder="Enter Description"/>
     </div>
-    <div class="form-group">
-        <label for="productPrice">Price:</label>
-        <input type="number" id="productPrice" [(ngModel)]="product.price" placeholder="Enter Price"/>
-    </div>
-    <div class="form-group">
-        <label for="productQuantity">Quantity:</label>
-        <input type="number" id="productQuantity" [(ngModel)]="product.quantityP" placeholder="Enter Quantity"/>
-    </div>
-    <div class="form-group">
-        <label for="productInfo">Info:</label>
-        <textarea id="productInfo" [(ngModel)]="product.descriptionP" placeholder="Enter Info"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="productInfo">Info:</label>
-    <input type="date" id="dateRappPs" name="dateRappPs" [(ngModel)]="product.expiration" required>
-    </div> 
+    
    <!-- <div class="form-group">
         <label for="productImage">Image:</label>
         <input type="file" id="productImage" (change)="onFileSelected($event)" accept="image/*">
     </div>  -->
     
     <!-- Add other input fields for additional properties as needed -->
-    <button class="update-button" (click)="UpdateProduct()">Update Product</button>
+    <button class="update-button" (click)="UpdateProduct()">Update</button>
 </div>
 </div>
 </div>

@@ -1,17 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StorageService } from 'src/app/_services/storage.service';
-import { ProductsService } from 'src/app/components/products.service';
-import { Products } from 'src/app/models/products';
+import { QuestionsServiceService } from 'src/app/components/questions-service.service';
+import { Questions } from 'src/app/models/Questions';
 
 @Component({
-  selector: 'app-delete-products',
-  templateUrl: './delete-products.component.html',
-  styleUrls: ['./delete-products.component.css']
+  selector: 'app-delete-question',
+  templateUrl: './delete-question.component.html',
+  styleUrls: ['./delete-question.component.css']
 })
-export class DeleteProductsComponent {
+export class DeleteQuestionComponent implements OnInit{
   id: number=0;
-  product: Products = new Products();
+  quote: Questions = new Questions();
   status: boolean = false;
   private roles: string[] = [];
   isLoggedIn = false;
@@ -22,35 +22,39 @@ export class DeleteProductsComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private productService: ProductsService,
+    private quoteService: QuestionsServiceService,
     private storageService: StorageService
-
   ) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
 
-    this.productService.getproductId(this.id).subscribe(data => {
-      this.product = data;
+    this.quoteService.getquestionId(this.id).subscribe(data => {
+      this.quote = data;
     });
+
     this.isLoggedIn = this.storageService.isLoggedIn();
     if (this.isLoggedIn) {
       const user = this.storageService.getUser();
       this.roles = user.roles;
     }
   }
+
   isUserRoleAdmin(): boolean {
     return this.roles.includes('ROLE_ADMIN');
   }
   confirmDelete(): void {
-    if (confirm('Are you sure you want to delete this product?')) {
+    if (confirm('Are you sure you want to delete this Q&A?')) {
       this.deleteProduct();
     }
   }
   deleteProduct(): void {
-    this.productService.deleteProduct(this.id).subscribe(() => {
+    this.quoteService.deletequestion(this.id).subscribe(() => {
 
-      this.router.navigate(['/dashProds']); 
+      this.router.navigate(['/allquestionAd']); 
     });
   }
+
 }
+
+

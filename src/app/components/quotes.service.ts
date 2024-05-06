@@ -15,8 +15,17 @@ export class QuotesService {
   getAllQuotes() {
     return this.httpclient.get<Quotes[]>(this.PRODUCT_API_URL + 'getallquotes');
   }
-  deleteQuoteCart(id: number): Observable<void> {
+  deleteQuote(id: number): Observable<void> {
     const url = `${this.PRODUCT_API_URL}deletequote/${id}`;
     return this.httpclient.delete<void>(url);
+  }
+  editProduct(id: number, quote: Quotes) {
+    const url = this.PRODUCT_API_URL + 'updatequote/' +quote.idQuotes; // Assuming there's an "id" property in the Product object
+    return this.httpclient.put(url, quote);
+  }
+  getproductId(idQuotes: number): Observable<Quotes> {
+    return this.httpclient.get<Quotes>(
+      `${this.PRODUCT_API_URL}getquotebyid/${idQuotes}`
+    );
   }
 }

@@ -1,17 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StorageService } from 'src/app/_services/storage.service';
-import { ProductsService } from 'src/app/components/products.service';
-import { Products } from 'src/app/models/products';
+import { QuestionsServiceService } from 'src/app/components/questions-service.service';
+import { Questions } from 'src/app/models/Questions';
 
 @Component({
-  selector: 'app-edit-products',
-  templateUrl: './edit-products.component.html',
-  styleUrls: ['./edit-products.component.css']
+  selector: 'app-edite-question',
+  templateUrl: './edite-question.component.html',
+  styleUrls: ['./edite-question.component.css']
 })
-export class EditProductsComponent {
+export class EditeQuestionComponent implements OnInit{
   id: number=0;
-  product: Products = new Products();
+  product: Questions = new Questions();
   status: boolean = false;
   private roles: string[] = [];
   isLoggedIn = false;
@@ -22,18 +22,18 @@ export class EditProductsComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private productService: ProductsService,
+    private quoteService: QuestionsServiceService,
     private storageService: StorageService
-
   ) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     
 
-    this.productService.getproductId(this.id).subscribe(data=>{
+    this.quoteService.getquestionId(this.id).subscribe(data=>{
       this.product= data;
     })
+
     this.isLoggedIn = this.storageService.isLoggedIn();
     if (this.isLoggedIn) {
       const user = this.storageService.getUser();
@@ -43,11 +43,13 @@ export class EditProductsComponent {
   isUserRoleAdmin(): boolean {
     return this.roles.includes('ROLE_ADMIN');
   }
-
   UpdateProduct(): void {
-    this.productService.editProduct(this.id, this.product).subscribe(() => {
+    this.quoteService.editquestion(this.id, this.product).subscribe(() => {
   
-      this.router.navigate(['/dashProds/']);
+      this.router.navigate(['/allquestionAd/']);
     });
   }
 }
+
+
+

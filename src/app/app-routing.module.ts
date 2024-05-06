@@ -46,11 +46,18 @@ import { ListconsultationpsychiatreComponent } from './Front/psy/listpsyfront-co
 import { ShowconsultationpsychiatreComponent } from './Front/psy/listpsyfront-component/psyconsultation/showconsultationpsychiatre/showconsultationpsychiatre.component';
 import { ListonsclientComponent } from './Front/Consultation/listonsclient/listonsclient.component';
 import { ListpsyadminComponent } from './Back/listpsyadmin/listpsyadmin.component';
-import {UsersstatisticComponent} from "./usersstatistic/usersstatistic.component";
-import {ProfileComponent} from "./profile/profile.component";
-import {EditprofileComponent} from "./editprofile/editprofile.component";
+import { UsersstatisticComponent } from './usersstatistic/usersstatistic.component';
+import { ProfileComponent } from './profile/profile.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
 import { AddQuestionsAComponent } from './Dashs/add-questions-a/add-questions-a.component';
 import { ChatbotQAComponent } from './chatbot-qa/chatbot-qa.component';
+import { EditeQuoteComponent } from './Dashs/editeQuote/edite-quote/edite-quote.component';
+import { EditeQuestionComponent } from './Dashs/editeQuestions/edite-question/edite-question.component';
+import { DeleteQuoteComponent } from './Dashs/deleteQuote/delete-quote/delete-quote.component';
+import { DeleteQuestionComponent } from './Dashs/deleteQuestions/delete-question/delete-question.component';
+import { QuotesComponent } from './quotes/quotes/quotes.component';
+import { AllQuotesComponent } from './Dashs/allQuotes/all-quotes/all-quotes.component';
+import { AllQuestionsComponent } from './Dashs/allquestions/all-questions/all-questions.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -65,8 +72,12 @@ const routes: Routes = [
   { path: 'cart', component: AddToCartComponent },
   { path: 'listProds', component: ListProductsComponent },
   { path: 'editeProds/:id', component: EditProductsComponent },
+  { path: 'editequote/:id', component: EditeQuoteComponent },
   { path: 'detailProds/:id', component: DetailsProductsComponent },
+  { path: 'detailquestion/:id', component: EditeQuestionComponent },
   { path: 'deleteProds/:id', component: DeleteProductsComponent },
+  { path: 'deletequote/:id', component: DeleteQuoteComponent },
+  { path: 'deletequestion/:id', component: DeleteQuestionComponent },
   { path: 'forgetpassword', component: ForgetpasswordComponent },
   { path: 'resetpassword', component: ResetpasswordComponent },
   { path: 'listUser', component: ListUserComponent },
@@ -75,7 +86,10 @@ const routes: Routes = [
   { path: 'quote', component: AddQuoteComponent },
   { path: 'addQA', component: AddQuestionsAComponent },
   { path: 'chatbotQA', component: ChatbotQAComponent },
+  { path: 'allquotes', component: AllQuotesComponent },
+  { path: 'quotesC', component: QuotesComponent },
   { path: 'chat', component: ChatComponent },
+  { path: 'allquestionAd', component: AllQuestionsComponent },
   { path: 'CalculCalories', component: CalculCaloriesComponent },
   { path: 'listNutrio', component: ListNutrionistesComponent },
   { path: 'psyc', component: ListpsyfrontComponentComponent },
@@ -88,10 +102,11 @@ const routes: Routes = [
   {
     path: 'showconsultationadmin/:id',
     component: ShowconsultationadminComponent,
-   
   },
-  { path: 'showconsultationpsy/:id',
-  component: ShowconsultationpsychiatreComponent},
+  {
+    path: 'showconsultationpsy/:id',
+    component: ShowconsultationpsychiatreComponent,
+  },
 
   { path: 'deletec/:id', component: DeleteconsultationComponent },
   { path: 'addrapport', component: AddrapportpsyComponent },
@@ -110,13 +125,11 @@ const routes: Routes = [
   { path: 'statspsyconsultation', component: StatspsyconsultationComponent },
   { path: 'consultationpsy', component: ListconsultationpsychiatreComponent },
 
-  {path:'edituser/:id',component:ModifierUserComponent},
-  {path:'userStatistics',component:UsersstatisticComponent},
-  {path:'profile',component:ProfileComponent},
-  { path: "editprofile", component: EditprofileComponent},
-  {path:'verify',component:VerifiactionComponent},
-
-
+  { path: 'edituser/:id', component: ModifierUserComponent },
+  { path: 'userStatistics', component: UsersstatisticComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'editprofile', component: EditprofileComponent },
+  { path: 'verify', component: VerifiactionComponent },
 ];
 
 @NgModule({

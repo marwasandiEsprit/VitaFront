@@ -6,7 +6,10 @@
     >
       <i class="fas fa-user-secret me-2"></i>Admin
     </div>
-    <div class="list-group list-group-flush my-3" *ngIf="isLoggedIn && isUserRoleAdmin()">
+    <div
+      class="list-group list-group-flush my-3"
+      *ngIf="isLoggedIn && isUserRoleAdmin()"
+    >
       <a
         href="/listUser"
         class="list-group-item list-group-item-action bg-transparent second-text active"
@@ -123,53 +126,127 @@
       </div>
     </nav>
 
-    <div class="container-fluid px-4"></div>
-    <div class="container">
-      <h2 class="title">List of Consultations</h2>
+    <div class="row my-5">
+      <div class="col-md-3">
+        <a routerLink="/quote" class="adds">
+          <div
+            class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded"
+          >
+            <div>
+              <h3 class="fs-2">+ <p class="fs-5">Quote</p></h3>
+              
+            </div>
+            <i
+              class="fas fa-quote-left me-2 fs-1 primary-text border rounded-full secondary-bg p-3"
+            ></i>
+          </div>
+        </a>
+      </div>
+      <h3 class="fs-4 mb-3">Quotes List</h3>
 
-      <!-- Filter input -->
-      <input
-        type="text"
-        placeholder="Filter by Client or Psychiatrist Username"
-        [(ngModel)]="filterTerm"
-        (input)="applyFilters()"
-      />
+      <div class="col">
+        <input
+          type="text"
+          [(ngModel)]="searchTerm"
+          placeholder="Search Products"
+          class="search-input mb-2"
+        />
 
-      <ng-container
-        *ngIf="
-          filteredConsultations && filteredConsultations.length > 0;
-          else noConsultations
-        "
-      >
-        <table class="consultation-table">
+        <table class="table bg-white rounded shadow-sm table-hover">
           <thead>
             <tr>
-              <th>Date</th>
-              <th>Client</th>
-              <th>Psychiatrist</th>
-              <th>consultation time</th>
-              <!-- <th>Actions</th> -->
+              <th scope="col">Titles</th>
+              <th scope="col">Descriptions</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let consultation of filteredConsultations">
-              <td>
-                {{ consultation.consultationdate | date : "MMM dd, yyyy" }}
-              </td>
-              <td>{{ consultation.client.username }}</td>
-              <td>{{ consultation.psychiatrist.username }}</td>
-              <td>{{ consultation.startTime }}</td>
-              <!-- <td>
-                <button [routerLink]="['/showconsultationadmin', consultation.idConsultation]">Details</button>
-              </td> -->
+            <ng-container *ngIf="filteredProducts && filteredProducts.length">
+              <tr *ngFor="let prods of pagedProducts">
+                <!-- Check if searchTerm is empty or if the product matches the search term -->
+                <ng-container
+                  *ngIf="
+                    !searchTerm ||
+                    prods.quoteTitle
+                      ?.toLowerCase()
+                      ?.includes(searchTerm.toLowerCase()) ||
+                    prods.descriptionQuotes
+                      ?.toLowerCase()
+                      ?.includes(searchTerm.toLowerCase())
+                  "
+                >
+                  <td>{{ prods.quoteTitle }}</td>
+                  <td>{{ prods.descriptionQuotes }}</td>
+                  <td>
+                    <a
+                      routerLink="/deletequote/{{ prods.idQuotes }}"
+                      class="btn btn-danger"
+                      style="margin-left: 10px"
+                      ><i class="fa fa-trash" aria-hidden="true"></i
+                    ></a>
+
+                    <button
+                      routerLink="/editequote/{{ prods.idQuotes }}"
+                      class="btn btn-info"
+                      style="margin-left: 10px"
+                    >
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                  </td>
+
+                  <!-- <td>
+                  <a
+                    routerLink="/deleteProds/{{ prods.idProducts }}"
+                    class="btn btn-danger"
+                    style="margin-left: 10px"
+                    ><i class="fa fa-trash" aria-hidden="true"></i></a
+                  >
+               
+                  <button
+                    routerLink="/editeProds/{{ prods.idProducts }}"
+                    class="btn btn-info"
+                    style="margin-left: 10px"
+                  >
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                  </button>
+                </td> -->
+                  <td>
+                    <!-- <span *ngIf="prods.increaseNeeded; else noIncrease">Increase quantity needed</span>
+                  <ng-template #noIncrease>No increase needed</ng-template> -->
+                  </td>
+                </ng-container>
+              </tr>
+            </ng-container>
+            <tr
+              *ngIf="
+                (!filteredProducts || filteredProducts.length === 0) &&
+                searchTerm
+              "
+            >
+              <td colspan="4">No matching products found.</td>
             </tr>
           </tbody>
         </table>
-      </ng-container>
 
-      <ng-template #noConsultations>
-        <p class="no-consultation-message">No consultations available.</p>
-      </ng-template>
+        <!-- Pagination -->
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+              <a class="page-link" (click)="previousPage()">Previous</a>
+            </li>
+            <li
+              class="page-item"
+              *ngFor="let page of pages"
+              [class.active]="currentPage === page"
+            >
+              <a class="page-link" (click)="goToPage(page)">{{ page }}</a>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === totalPages">
+              <a class="page-link" (click)="nextPage()">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
 </div>

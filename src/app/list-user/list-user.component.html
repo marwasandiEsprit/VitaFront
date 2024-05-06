@@ -1,111 +1,134 @@
 <div [ngClass]="status ? 'toggled' : ''" class="d-flex" id="wrapper">
-    <!-- Sidebar -->
-    <div class="bg-white" id="sidebar-wrapper">
-      <div
-        class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"
-      >
-        <i class="fas fa-user-secret me-2"></i>Admin
-      </div>
-      <div class="list-group list-group-flush my-3">
-        <a
-          href="#"
-          class="list-group-item list-group-item-action bg-transparent second-text active"
-          ><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a
-        >
-        <a
-          routerLink="/dashProds"
-          class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
-          ><i class="fas fa-project-diagram me-2"></i>Products</a
-        >
-        <a
-          href="#"
-          class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
-          ><i class="fas fa-chart-line me-2"></i>Analytics</a
-        >
-        <a
-          href="#"
-          class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
-          ><i class="fas fa-paperclip me-2"></i>Reports</a
-        >
-        <a
-          href="#"
-          class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
-          ><i class="fas fa-shopping-cart me-2"></i>Store Mng</a
-        >
-        <a
-          href="#"
-          class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
-          ><i class="fas fa-gift me-2"></i>Products</a
-        >
-        <a
-          href="#"
-          class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
-          ><i class="fas fa-comment-dots me-2"></i>Chat</a
-        >
-        <a
-          href="#"
-          class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
-          ><i class="fas fa-map-marker-alt me-2"></i>Outlet</a
-        >
-        <a
-          href="#"
-          class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"
-          ><i class="fas fa-power-off me-2"></i>Logout</a
-        >
-      </div>
+  <!-- Sidebar -->
+  <div class="bg-white" id="sidebar-wrapper">
+    <div
+      class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"
+    >
+      <i class="fas fa-user-secret me-2"></i>Admin
     </div>
-    <!-- /#sidebar-wrapper -->
+    <div class="list-group list-group-flush my-3">
+      <a
+        href="/listUser"
+        class="list-group-item list-group-item-action bg-transparent second-text active"
+        ><i class="fas fa-user me-2"></i>Users</a
+      >
+      <a
+      href="userStatistics"
+      class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+      ><i class="fas fa-area-chart"></i> Statistics</a
+    >
+      <a
+        routerLink="/dashProds"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+        ><i class="fas fa-shopping-cart me-2"></i>Products</a
+      >
+      <a
+        href="listpsy"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+        ><i class="fas fa-user-md"></i>psychiatrists</a
+      >
+      <a
+        href="consultationsadmin"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+        ><i class="fa fa-connectdevelop" aria-hidden="true"></i>Consultations</a
+      >
+      <a
+        href="rapadmin"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+        ><i class="fas fa-paperclip me-2"></i>Reports</a
+      >
+      <a
+      href="allquotes"
+      class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+      ><i class="fas fa-quote-left"></i> Quotes</a
+    >
+    <a
+    href="allquestionAd"
+    class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+    ><i class="fas fa-question-circle"></i> Q&A</a
+  >
+ 
 
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-      <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
-        <div class="d-flex align-items-center">
-          <i
-            class="fas fa-align-left primary-text fs-4 me-3"
-            (click)="addToggle()"
-            id="menu-toggle"
-          ></i>
-          <h2 class="fs-2 m-0">Dashboard</h2>
-        </div>
+  
+      <a
+        href="#"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+        ><i class="fas fa-shopping-cart me-2"></i>Store Mng</a
+      >
+      <a
+        href="#"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+        ><i class="fas fa-gift me-2"></i>Products</a
+      >
+      <a
+        href="#"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+        ><i class="fas fa-comment-dots me-2"></i>Chat</a
+      >
+      <a
+        href="#"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+        ><i class="fas fa-map-marker-alt me-2"></i>Outlet</a
+      >
+      <a
+        href="#"
+        class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"
+        ><i class="fas fa-power-off me-2"></i>Logout</a
+      >
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+      <div class="d-flex align-items-center">
+        <i
+          class="fas fa-align-left primary-text fs-4 me-3"
+          (click)="addToggle()"
+          id="menu-toggle"
+        ></i>
+        <h2 class="fs-2 m-0">Dashboard</h2>
+      </div>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle second-text fw-bold"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="fas fa-user me-2"></i>John Doe
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      <div class="container-fluid px-4">
-        <div class="row g-3 my-2">
-          <!-- <div class="col-md-3">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle second-text fw-bold"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-user me-2"></i>John Doe
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid px-4">
+      <div class="row g-3 my-2">
+        <!-- <div class="col-md-3">
             <a routerLink="/prod" class="adds">
               <div
                 class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded"
@@ -121,7 +144,7 @@
             </a>
           </div> -->
 
-          <!-- <div class="col-md-3">
+        <!-- <div class="col-md-3">
                       <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                           <div>
                               <h3 class="fs-2">4920</h3>
@@ -151,104 +174,113 @@
                           <i class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                       </div>
                   </div> -->
-        </div>
+      </div>
 
+      <div class="row my-5">
+        <h3 class="fs-4 mb-3">Users List</h3>
 
-        <div class="row my-5">
-          <h3 class="fs-4 mb-3">Users List</h3>
+        <div class="row">
+          <div class="d-flex justify-content-center" style="height: 50px">
+            <button class="btn btn-primary" (click)="calculateScores()">
+              Calculate Scores
+            </button>
+            <button class="btn btn-success" (click)="affectClusters()">
+              Affect Clusters
+            </button>
+          </div>
 
-          <div class="row">
-
-            <div class="d-flex justify-content-center" style="height: 50px;">
-              <button class="btn btn-primary" (click)="calculateScores()">Calculate Scores</button>
-              <button class="btn btn-success" (click)="affectClusters()">Affect Clusters</button>
-            </div>
-
-            <div class="d-flex justify-content-center" style="height: 50px;">
+          <div class="d-flex justify-content-center" style="height: 50px">
             <input
               type="text"
               [(ngModel)]="searchTerm"
               placeholder="Search Users"
               class="search-input mb-2"
             />
-            </div>
-
-            <div class="d-flex justify-content-center" style="height: 50px;">
-              <select [(ngModel)]="roleFilter" class="form-control" style="width: 200px;">
-                <option value="">Select a role to filter</option>
-                <option *ngFor="let role of roles" [value]="role.name">{{ role.name }}</option>
-              </select>
-            </div>
-
-            <table class="table bg-white rounded shadow-sm table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">Username</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Creation Date</th>
-                  <th scope="col">Activated</th>
-                  <th scope="col">Banned</th>
-                  <th score="com">Score</th>
-                  <th score="com">Cluster</th>
-                  <th scope="col">Roles</th>
-                  <th scope="col">Details</th>
-                  <th scope="col">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <ng-container>
-                  <tr *ngFor="let u of filterUsers()">
-                    <!-- Check if searchTerm is empty or if the product matches the search term -->
-                    <ng-container>
-                      <td>{{ u.username }}</td>
-                      <td>{{ u.email }}</td>
-                      <td>{{ u.creationDate | date }}</td>
-                      <td>{{u.activated ? 'Yes' : 'No'}}</td>
-                      <td>{{u.banned ? 'Yes' : 'No'}}</td>
-                      <td>{{u.score}}</td>
-                      <td>{{u.cluster}}</td>
-                      <div *ngFor="let role of u.roles">
-                        {{ role.name }}
-                      </div>
-                      <td></td>
-                      <td>
-                        <a
-                          class="btn btn-danger"
-                          style="margin-left: 10px"
-                          (click)="confirmDelete(u.id)"
-                          >delete</a>
-                        or
-                        <button
-                          class="btn btn-info"
-                          style="margin-left: 10px"
-                          (click)="editUser(u.id)"
-                        >
-                          Edit
-                        </button>
-                      </td>
-                    </ng-container>
-                  </tr>
-                </ng-container>
-              </tbody>
-            </table>
-
-               <!-- Pagination -->
-<!--               <nav aria-label="Page navigation example">-->
-<!--                <ul class="pagination justify-content-center">-->
-<!--                  <li class="page-item" [class.disabled]="currentPage === 1">-->
-<!--                    <a class="page-link"  (click)="previousPage()">Previous</a>-->
-<!--                  </li>-->
-<!--                  <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page">-->
-<!--                    <a class="page-link"  (click)="goToPage(page)">{{ page }}</a>-->
-<!--                  </li>-->
-<!--                  <li class="page-item" [class.disabled]="currentPage === totalPages">-->
-<!--                    <a class="page-link"  (click)="nextPage()">Next</a>-->
-<!--                  </li>-->
-<!--                </ul>-->
-<!--              </nav>-->
           </div>
+
+          <div class="d-flex justify-content-center" style="height: 50px">
+            <select
+              [(ngModel)]="roleFilter"
+              class="form-control"
+              style="width: 200px"
+            >
+              <option value="">Select a role to filter</option>
+              <option *ngFor="let role of roles" [value]="role.name">
+                {{ role.name }}
+              </option>
+            </select>
+          </div>
+
+          <table class="table bg-white rounded shadow-sm table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Creation Date</th>
+                <th scope="col">Activated</th>
+                <th scope="col">Banned</th>
+                <th score="com">Score</th>
+                <th score="com">Cluster</th>
+                <th scope="col">Roles</th>
+                <th scope="col">Details</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container>
+                <tr *ngFor="let u of filterUsers()">
+                  <!-- Check if searchTerm is empty or if the product matches the search term -->
+                  <ng-container>
+                    <td>{{ u.username }}</td>
+                    <td>{{ u.email }}</td>
+                    <td>{{ u.creationDate | date }}</td>
+                    <td>{{ u.activated ? "Yes" : "No" }}</td>
+                    <td>{{ u.banned ? "Yes" : "No" }}</td>
+                    <td>{{ u.score }}</td>
+                    <td>{{ u.cluster }}</td>
+                    <div *ngFor="let role of u.roles">
+                      {{ role.name }}
+                    </div>
+                    <td></td>
+                    <td>
+                      <a
+                        class="btn btn-danger"
+                        style="margin-left: 10px"
+                        (click)="confirmDelete(u.id)"
+                        >delete</a
+                      >
+                      or
+                      <button
+                        class="btn btn-info"
+                        style="margin-left: 10px"
+                        (click)="editUser(u.id)"
+                      >
+                        Edit
+                      </button>
+                    </td>
+                  </ng-container>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+
+          <!-- Pagination -->
+          <!--               <nav aria-label="Page navigation example">-->
+          <!--                <ul class="pagination justify-content-center">-->
+          <!--                  <li class="page-item" [class.disabled]="currentPage === 1">-->
+          <!--                    <a class="page-link"  (click)="previousPage()">Previous</a>-->
+          <!--                  </li>-->
+          <!--                  <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page">-->
+          <!--                    <a class="page-link"  (click)="goToPage(page)">{{ page }}</a>-->
+          <!--                  </li>-->
+          <!--                  <li class="page-item" [class.disabled]="currentPage === totalPages">-->
+          <!--                    <a class="page-link"  (click)="nextPage()">Next</a>-->
+          <!--                  </li>-->
+          <!--                </ul>-->
+          <!--              </nav>-->
         </div>
       </div>
     </div>
   </div>
-  <!-- /#page-content-wrapper -->
+</div>
+<!-- /#page-content-wrapper -->

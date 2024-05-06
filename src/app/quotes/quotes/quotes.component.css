@@ -1,0 +1,16 @@
+/* app-quotes.component.css */
+.advertising-card {
+    border: 2px solid #df507b; /* Change the color to match your theme */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .advertising-card .card-header {
+    background-color: #df507b; /* Change the color to match your theme */
+    color: white;
+  }
+  
+  .advertising-card .card-footer {
+    background-color: #f8f9fa; /* Change the color to match your theme */
+  }
+  
