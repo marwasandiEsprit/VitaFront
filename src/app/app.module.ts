@@ -79,6 +79,9 @@ import { EditeQuoteComponent } from './Dashs/editeQuote/edite-quote/edite-quote.
 import { DeleteQuestionComponent } from './Dashs/deleteQuestions/delete-question/delete-question.component';
 import { EditeQuestionComponent } from './Dashs/editeQuestions/edite-question/edite-question.component';
 import { AllQuestionsComponent } from './Dashs/allquestions/all-questions/all-questions.component';
+import { ListrapportnutriComponent } from './Rapportnutritionist/listrapportnutri/listrapportnutri.component';
+import { AddrapportnutriComponent } from './Rapportnutritionist/listrapportnutri/addrapportnutri/addrapportnutri.component';
+import { EditrapportnutriComponent } from './Rapportnutritionist/listrapportnutri/editrapportnutri/editrapportnutri.component';
 // import { CommunityListComponent } from './community/community-list/community-list.component';
 // import { CommunityPostsComponent } from './community/community-posts/community-posts.component';
 // import { CommunityPostDetailsComponent } from './community/community-post-details/community-post-details.component';
@@ -172,6 +175,9 @@ import { AllQuestionsComponent } from './Dashs/allquestions/all-questions/all-qu
     DeleteQuestionComponent,
     EditeQuestionComponent,
     AllQuestionsComponent,
+    ListrapportnutriComponent,
+    AddrapportnutriComponent,
+    EditrapportnutriComponent,
   ],
   imports: [
     BrowserModule,

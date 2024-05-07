@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>Add Rapport Nutr</h2>
+    <form (ngSubmit)="addRapportNutr()">
+      <div class="form-group">
+        <label for="nutritionist">Nutritionist:</label>
+        <select class="form-control" id="nutritionist" name="nutritionist" [(ngModel)]="rapportNutr.nutristionist!.username" required>
+          <option *ngFor="let nutritionist of nutritionists" [value]="nutritionist.id">{{ nutritionist.username }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="client">Client:</label>
+        <select class="form-control" id="client" name="client" [(ngModel)]="rapportNutr.clients" required>
+          <option *ngFor="let client of clients" [value]="client.id">{{ client.username }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="description" name="description" [(ngModel)]="rapportNutr.description" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  

@@ -58,6 +58,9 @@ import { DeleteQuestionComponent } from './Dashs/deleteQuestions/delete-question
 import { QuotesComponent } from './quotes/quotes/quotes.component';
 import { AllQuotesComponent } from './Dashs/allQuotes/all-quotes/all-quotes.component';
 import { AllQuestionsComponent } from './Dashs/allquestions/all-questions/all-questions.component';
+import { ListrapportnutriComponent } from './Rapportnutritionist/listrapportnutri/listrapportnutri.component';
+import { AddrapportnutriComponent } from './Rapportnutritionist/listrapportnutri/addrapportnutri/addrapportnutri.component';
+import { EditrapportnutriComponent } from './Rapportnutritionist/listrapportnutri/editrapportnutri/editrapportnutri.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -130,6 +133,10 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'editprofile', component: EditprofileComponent },
   { path: 'verify', component: VerifiactionComponent },
+  { path: 'rapnut', component: ListrapportnutriComponent },
+  { path: 'addrapnut', component: AddrapportnutriComponent },
+  { path: 'editrapnut/:id', component: EditrapportnutriComponent },
+
 ];
 
 @NgModule({

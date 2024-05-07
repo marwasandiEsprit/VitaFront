@@ -1,0 +1,11 @@
+<h1>this is a test </h1>
+<div *ngFor="let rapportNutr of rapportNutrs">
+    <h3>{{ rapportNutr.description }}</h3>
+    <p>Date: {{ rapportNutr.dateRappNutr | date:'medium' }}</p>
+    <p>Nutritionist: {{ rapportNutr.nutristionist?.username }}</p>
+    <p>Client: {{ rapportNutr.clients?.username }}</p>
+    <!-- Add more details about the rapportNutr as needed -->
+    <button [routerLink]="['/editrapnut', rapportNutr.idRapportNutr]" class="btn btn-primary">Edit</button>
+  </div>
+
+  

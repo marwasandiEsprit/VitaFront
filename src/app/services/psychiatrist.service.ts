@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Consultation, Feedback, RapportPsy, User } from '../models/user';
+import { Consultation, Feedback, RapportNutr, RapportPsy, User } from '../models/user';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,6 +11,7 @@ export class PsychiatristService {
   private apiUrl = 'http://localhost:8085/vita/api/user';
   private consultation = 'http://localhost:8085/vita/user/';
   private baseUrl = 'http://localhost:8085/vita/consultation'
+  private baseUrl1 = 'http://localhost:8085/vita/rapportnutr'
   private rapport = 'http://localhost:8085/vita/rapportpsy'
   private url = 'http://localhost:8085/vita'
   private apiUrl1 = 'http://localhost:8085/vita/rating';
@@ -102,5 +103,23 @@ getTotalConsultationsPerPsychiatrist(): Observable<Map<string, number>> {
 }
 generatePdf(rapportPsyId: number): Observable<string> {
   return this.http.get<string>(`${this.url}/generate-pdf/${rapportPsyId}`);
+}
+public ajouterRapportNutritionniste(rapportNutr: RapportNutr): Observable<RapportNutr> {
+  return this.http.post<RapportNutr>(`${this.baseUrl1}/addrapportnutritionniste`, rapportNutr);
+}
+
+public updateRapportNutritionniste(idRapportNutr: number, rapport: RapportNutr): Observable<any> {
+  return this.http.put(`${this.baseUrl1}/updaterapportnutritionniste/${idRapportNutr}`, rapport);
+}
+
+public getRapportNutritionnisteById(idRapportNutr: number): Observable<RapportNutr> {
+  return this.http.get<RapportNutr>(`${this.baseUrl1}/getrapportnutritionnisteById/${idRapportNutr}`);
+}
+
+public chercherTousRapportNutritionniste(): Observable<RapportNutr[]> {
+  return this.http.get<RapportNutr[]>(`${this.baseUrl1}/getAll`);
+}
+getUsersWithNutritionistSpecialty(): Observable<User[]> {
+  return this.http.get<User[]>('http://localhost:8085/vita/api/user/Nutre');
 }
 }

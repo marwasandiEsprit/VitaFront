@@ -1,0 +1,32 @@
+<!-- editrapportnutri.component.html -->
+
+<div class="container">
+    <h1>Edit Rapport Nutri</h1>
+    
+    <form *ngIf="rapportNutr" (ngSubmit)="updateRapportNutr()">
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" [(ngModel)]="rapportNutr.description" class="form-control"></textarea>
+      </div>
+      
+      <div class="form-group" *ngIf="rapportNutr.nutristionist">
+        <label for="nutritionist">Nutritionist:</label>
+        <select id="nutritionist" name="nutritionist" [(ngModel)]="rapportNutr.nutristionist.username" class="form-control">
+          <option *ngFor="let nut of nutritionists" [value]="nut.id">{{ nut.username }}</option>
+        </select>
+      </div>
+      
+      <div class="form-group" *ngIf="rapportNutr.clients">
+        <label for="client">Client:</label>
+        <select id="client" name="client" [(ngModel)]="rapportNutr.clients.username" class="form-control">
+          <option *ngFor="let cli of clients" [value]="cli.id">{{ cli.username }}</option>
+        </select>
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Update</button>
+      <a routerLink="/rapport-nutr-list" class="btn btn-secondary">Cancel</a>
+    </form>
+  
+    <div *ngIf="!rapportNutr" class="alert alert-danger">Rapport Nutri not found.</div>
+  </div>
+  
