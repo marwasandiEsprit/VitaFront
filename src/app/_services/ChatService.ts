@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Plat } from '../models/Plat';
 import { PlatsQauntites } from '../models/PlatsQauntites';
 import { ChatRoom } from '../models/ChatRoom';
@@ -29,4 +29,21 @@ export class ChatService {
   ajouterChatMessage(chatMessage : ChatMessage) : Observable<ChatMessage> {
     return this.http.post<ChatMessage>(`${this.apiUrl}/addMessage`,chatMessage)
   }
+  countClientsPerNutritionist(): Observable<{ [key: string]: number }> {
+    return this.http.get<{ [key: string]: number }>(`${this.apiUrl}/countClientsPerNutritionist`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    let errorMessage = 'Unknown error occurred';
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.error(errorMessage);
+    return throwError(errorMessage);
+  }
+
 }

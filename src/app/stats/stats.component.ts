@@ -18,7 +18,7 @@ interface RouteParams {
   styleUrls: ['./stats.component.css']
 })
 export class StatsComponent {
-  status: boolean = true;
+  status: boolean = false;
   @ViewChild('consultationChart') consultationChartRef!: ElementRef;
   consultationsPerDay: Map<string, number> = new Map();
   year!: number;
@@ -81,8 +81,8 @@ export class StatsComponent {
           {
             label: 'Number of Consultations',
             data: Array.from(this.consultationsPerDay.values()),
-            backgroundColor: 'rgba(54, 162, 235, 0.5)',
-            borderColor: 'rgba(54, 162, 235, 1)',
+            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+            borderColor: 'rgba(255, 255, 255, 1)',
             borderWidth: 1
           }
         ]

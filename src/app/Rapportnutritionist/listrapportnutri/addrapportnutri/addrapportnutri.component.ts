@@ -10,26 +10,26 @@ import { PsychiatristService } from 'src/app/services/psychiatrist.service';
   styleUrls: ['./addrapportnutri.component.css']
 })
 export class AddrapportnutriComponent {
-  
-  rapportNutr: RapportNutr = { nutristionist: {} as User }; // Initialize with an empty User object
+  rapportNutr: RapportNutr = {};
+
   nutritionists: User[] = [];
   clients: User[] = [];
 
   constructor(
     private rapportNutrService: PsychiatristService,
-    private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.getNutritionists();
-    this.loadClients();
+    this.getClients();
   }
 
   getNutritionists(): void {
     this.rapportNutrService.getUsersWithNutritionistSpecialty().subscribe(
-      (data: User[]) => {
-        this.nutritionists = data;
+      (nutritionists: User[]) => {
+        this.nutritionists = nutritionists;
       },
       (error: any) => {
         console.error('Failed to fetch nutritionists:', error);
@@ -37,20 +37,39 @@ export class AddrapportnutriComponent {
     );
   }
 
-  loadClients(): void {
+  getClients(): void {
     this.rapportNutrService.getclients().subscribe(
       (clients: User[]) => {
         this.clients = clients;
       },
-      (error) => {
-        console.error('Failed to fetch clients', error);
+      (error: any) => {
+        console.error('Failed to fetch clients:', error);
       }
     );
   }
 
-  addRapportNutr() {
-    this.rapportNutrService.ajouterRapportNutritionniste(this.rapportNutr).subscribe(() => {
-      this.router.navigate(['/rapport-nutr-list']);
-    });
+  addRapportNutr(): void {
+    if (!this.validateForm()) {
+      console.error('Please fill in all the required fields.');
+      return;
+    }
+
+    this.rapportNutrService.ajouterRapportNutritionniste(this.rapportNutr).subscribe(
+      () => {
+        this.router.navigate(['/rapport-nutr-list']);
+      },
+      (error: any) => {
+        console.error('Failed to add rapport nutr:', error);
+      }
+    );
+  }
+
+  validateForm(): boolean {
+    return !!(
+      this.rapportNutr.description &&
+      this.rapportNutr.dateRappNutr &&
+      this.rapportNutr.nutristionist &&
+      this.rapportNutr.clients
+    );
   }
 }

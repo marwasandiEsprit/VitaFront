@@ -79,7 +79,7 @@
   <!-- Page Content -->
   <div id="page-content-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
-      <div class="d-flex align-items-center">
+      <div class="d-flex align-items-center text-white">
         <i
           class="fas fa-align-left primary-text fs-4 me-3"
           (click)="addToggle()"
@@ -100,7 +100,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown">
             <a
@@ -120,14 +120,13 @@
             </ul>
           </li>
         </ul>
-      </div>
+      </div> -->
     </nav>
 
-    <div class="container-fluid px-4"></div>
-    <!-- /#page-content-wrapper -->
+
 
     <div class="container">
-      <h2 class="title">List of Rapport Psy</h2>
+      <h2 class="title text-white text-center">List of Rapport Psy</h2>
 
       <!-- Filter input -->
       <div class="filter-container">
@@ -154,7 +153,7 @@
               <!-- New column for actions -->
             </tr>
           </thead>
-          <tbody>
+          <tbody class="bg-white">
             <tr *ngFor="let rapport of filteredRapports">
               <td>{{ rapport.idRapportPsy }}</td>
               <td>{{ rapport.description }}</td>
@@ -162,10 +161,10 @@
               <td>{{ rapport.psychiatrist.username }}</td>
               <td>{{ rapport.clients.username }}</td>
               <td>
-                <button [routerLink]="['/showrapadmin', rapport.idRapportPsy]">
+                <button [routerLink]="['/showrapadmin', rapport.idRapportPsy]" class="btn btn-primary rounded-pill">
                   show
                 </button>
-                <button (click)="generatePdf(rapport.idRapportPsy)">
+                <button (click)="generatePdf(rapport.idRapportPsy)" class="btn btn-success rounded-pill">
                   Export PDF
                 </button>
               </td>

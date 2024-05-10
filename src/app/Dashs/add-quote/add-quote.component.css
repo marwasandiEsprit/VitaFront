@@ -85,14 +85,8 @@
   
   #wrapper {
     overflow-x: hidden;
-    background-image: linear-gradient(
-      to right,
-      #baf3d7,
-      #c2f5de,
-      #cbf7e4,
-      #d4f8ea,
-      #ddfaef
-    );
+    position: relative;
+    background: linear-gradient(115deg, #ffab87 57%, #ffab87 50%);
   }
   
   #sidebar-wrapper {
@@ -151,3 +145,48 @@
       margin-left: -15rem;
     }
   }
+
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top: 10%;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  

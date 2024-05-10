@@ -1,23 +1,26 @@
 <div class="container">
-    <h2>Add Rapport Nutr</h2>
-    <form (ngSubmit)="addRapportNutr()">
-      <div class="form-group">
-        <label for="nutritionist">Nutritionist:</label>
-        <select class="form-control" id="nutritionist" name="nutritionist" [(ngModel)]="rapportNutr.nutristionist!.username" required>
-          <option *ngFor="let nutritionist of nutritionists" [value]="nutritionist.id">{{ nutritionist.username }}</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="client">Client:</label>
-        <select class="form-control" id="client" name="client" [(ngModel)]="rapportNutr.clients" required>
-          <option *ngFor="let client of clients" [value]="client.id">{{ client.username }}</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="description">Description:</label>
-        <textarea class="form-control" id="description" name="description" [(ngModel)]="rapportNutr.description" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
-  
+  <h2>Add Rapport Nutritionist</h2>
+  <form (ngSubmit)="addRapportNutr()">
+    <div class="form-group">
+      <label>Description</label>
+      <textarea class="form-control" [(ngModel)]="rapportNutr.description" name="description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label>Date</label>
+      <input type="date" class="form-control" [(ngModel)]="rapportNutr.dateRappNutr" name="dateRappNutr" required>
+    </div>
+    <div class="form-group">
+      <label>Nutritionist</label>
+      <select class="form-control" [(ngModel)]="rapportNutr.nutristionist" name="nutritionist" required>
+        <option *ngFor="let nutritionist of nutritionists" [ngValue]="nutritionist">{{ nutritionist.username }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Clients</label>
+      <select multiple class="form-control" [(ngModel)]="rapportNutr.clients" name="clients" required>
+        <option *ngFor="let client of clients" [ngValue]="client">{{ client.username }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

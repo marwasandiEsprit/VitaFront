@@ -9,14 +9,13 @@
     min-height: 500px;
   } */
   #home {
-    background: rgb(0, 101, 219); /* Fallback color */
+    background: rgb(24, 42, 63); /* Fallback color */
     background: linear-gradient(
-      45deg,
-     
-      rgba(0, 212, 255, 1) 25%, /* 25% position with rgba for the second color */
-      rgba(65, 240, 240, 0.5) 50%, /* 50% position with rgba for the third color */
-      rgb(84, 224, 130) 75%, /* 75% position with rgba for the fourth color */
-      rgb(60, 239, 102) 100% /* 100% position with rgba for the fifth color */
+      40deg,
+     /* 25% position with rgba for the second color */
+      rgba(62, 62, 62, 0.5) 20%, /* 50% position with rgba for the third color */
+      rgb(74, 75, 76) 55%, /* 75% position with rgba for the fourth color */
+      rgb(239, 108, 60) 90% /* 100% position with rgba for the fifth color */
     );
     min-height: 500px;
 }

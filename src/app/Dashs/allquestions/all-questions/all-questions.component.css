@@ -27,14 +27,22 @@
   
   #wrapper {
     overflow-x: hidden;
-    background-image: linear-gradient(
-      to right,
-      #baf3d7,
-      #c2f5de,
-      #cbf7e4,
-      #d4f8ea,
-      #ddfaef
-    );
+    position: relative;
+    background: linear-gradient(115deg, #ffab87 57%, #ffab87 50%);
+  }
+  .search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 250px; /* Adjust the width as needed */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .search-input:focus {
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
   #sidebar-wrapper {

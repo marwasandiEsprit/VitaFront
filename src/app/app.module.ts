@@ -82,6 +82,8 @@ import { AllQuestionsComponent } from './Dashs/allquestions/all-questions/all-qu
 import { ListrapportnutriComponent } from './Rapportnutritionist/listrapportnutri/listrapportnutri.component';
 import { AddrapportnutriComponent } from './Rapportnutritionist/listrapportnutri/addrapportnutri/addrapportnutri.component';
 import { EditrapportnutriComponent } from './Rapportnutritionist/listrapportnutri/editrapportnutri/editrapportnutri.component';
+import { ChatNutriComponent } from './chart-nutr/chat-nutri/chat-nutri.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 // import { CommunityListComponent } from './community/community-list/community-list.component';
 // import { CommunityPostsComponent } from './community/community-posts/community-posts.component';
 // import { CommunityPostDetailsComponent } from './community/community-post-details/community-post-details.component';
@@ -178,6 +180,8 @@ import { EditrapportnutriComponent } from './Rapportnutritionist/listrapportnutr
     ListrapportnutriComponent,
     AddrapportnutriComponent,
     EditrapportnutriComponent,
+    ChatNutriComponent,
+    AboutusComponent,
   ],
   imports: [
     BrowserModule,

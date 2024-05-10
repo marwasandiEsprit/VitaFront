@@ -82,7 +82,7 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
       <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center text-white">
           <i
             class="fas fa-align-left primary-text fs-4 me-3"
             (click)="addToggle()"
@@ -103,34 +103,14 @@
           <span class="navbar-toggler-icon"></span>
         </button>
   
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle second-text fw-bold"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="fas fa-user me-2"></i>John Doe
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+      
       </nav>
 <div class="edit-product-container">
     <h3>Edit Quote</h3>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="productId">Quote ID:</label>
         <span>{{product.idQuotes}}</span>
-    </div>
+    </div> -->
     <div class="form-group">
         <label for="productName">Title:</label>
         <input type="text" id="productName" [(ngModel)]="product.quoteTitle" placeholder="Enter Title"/>

@@ -1,9 +1,10 @@
 .footer {
+    margin-top: -5% !important;
     overflow: hidden;
     position: sticky;
     top: 100%;
     padding: 20px 10px;
-    background: linear-gradient(45deg, #0066FF 50%, #00ffae  100%);
+    background: linear-gradient(45deg, #3d3e3e 50%, #ff4800  100%);
 }
 /* 0066FF */
 h1

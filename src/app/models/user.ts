@@ -49,8 +49,6 @@ export interface Consultation {
   }
   export interface RapportNutr {
     idRapportNutr?: number; // Assuming Long is equivalent to number in TypeScript
-  
-    
     description?: string;
     dateRappNutr?: Date;
     nutristionist?: User | null; // Assuming User is another model you've defined

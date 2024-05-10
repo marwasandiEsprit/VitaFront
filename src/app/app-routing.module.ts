@@ -61,6 +61,7 @@ import { AllQuestionsComponent } from './Dashs/allquestions/all-questions/all-qu
 import { ListrapportnutriComponent } from './Rapportnutritionist/listrapportnutri/listrapportnutri.component';
 import { AddrapportnutriComponent } from './Rapportnutritionist/listrapportnutri/addrapportnutri/addrapportnutri.component';
 import { EditrapportnutriComponent } from './Rapportnutritionist/listrapportnutri/editrapportnutri/editrapportnutri.component';
+import { ChatNutriComponent } from './chart-nutr/chat-nutri/chat-nutri.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -136,6 +137,7 @@ const routes: Routes = [
   { path: 'rapnut', component: ListrapportnutriComponent },
   { path: 'addrapnut', component: AddrapportnutriComponent },
   { path: 'editrapnut/:id', component: EditrapportnutriComponent },
+  { path: 'chartnut', component: ChatNutriComponent },
 
 ];
 

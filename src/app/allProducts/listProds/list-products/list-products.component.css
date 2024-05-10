@@ -191,6 +191,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 margin-top: 20px; /* Adjust as needed */
+margin-bottom: 10% !important;
 }
 
 .pagination-button {

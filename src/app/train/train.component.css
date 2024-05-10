@@ -2,8 +2,8 @@
     background: Orgb(0, 101, 219);
     background: linear-gradient(
       90deg,
-      rgb(235, 75, 101) 50%,
-      rgb(63, 207, 236) 100%
+      rgb(84, 80, 81) 50%,
+      rgb(255,72,0) 100%
     );
     min-height: 300px;
   }
@@ -40,14 +40,14 @@
     border-radius: 16px;
 }
 .flip-card-front{
-    background-image: linear-gradient(45deg, #5de1ea , #d9048ed0);
+    background-image: linear-gradient(45deg, #464646 , #d94404d0);
 }
 .flip-card-front img{
     width: 220px;
     margin-top: 1rem;
 }
 .flip-card-back {
-    background-image: linear-gradient(315deg , #5de1ea, #8a045bc0);
+    background-image: linear-gradient(315deg , #464646, #d94404d0);
     color: #ffffff;
     transform: rotateY(180deg);
 }
@@ -72,4 +72,8 @@
 }
 .ph1{
     padding-top: 13% !important;
+}
+
+.trainbot{
+    margin-bottom: 10% !important;
 }

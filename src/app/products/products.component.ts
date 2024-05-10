@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Products,ProductType  } from '../models/products';
 import { ProductsService } from '../components/products.service';
 import { Router } from '@angular/router';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css'],
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit{
+  status = false;
+  private roles: string[] = [];
+  isLoggedIn = false;
   newProduct: Products = {
     prodName: '',
     typeProd: ProductType.PROTEIN,
@@ -18,8 +22,23 @@ export class ProductsComponent {
     imageUrl: '' ,
     expiration:''
   };
+  addToggle() {
+    this.status = !this.status;
+  }
+
+  ngOnInit(): void {
+    this.isLoggedIn = this.storageService.isLoggedIn();
+ 
+    if (this.isLoggedIn) {
+      const user = this.storageService.getUser();
+      this.roles = user.roles;
+    }
+  }
+  isUserRoleAdmin(): boolean {
+    return this.roles.includes('ROLE_ADMIN');
+  }
   productTypes: string[] = Object.values(ProductType);
-  constructor(private productsService: ProductsService, private router: Router) {}
+  constructor(private productsService: ProductsService, private router: Router,private storageService: StorageService) {}
   addProduct() {
     const formData = new FormData();
     formData.append('prodName', this.newProduct.prodName ?? '');

@@ -82,7 +82,7 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
       <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center text-white">
           <i
             class="fas fa-align-left primary-text fs-4 me-3"
             (click)="addToggle()"
@@ -103,47 +103,27 @@
           <span class="navbar-toggler-icon"></span>
         </button>
   
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle second-text fw-bold"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="fas fa-user me-2"></i>John Doe
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+      
       </nav>
 <div class="delete-product-container">
     <h3>Delete Questions and Answers </h3>
     <div class="product-details">
         <div class="detail-item">
-            <label>Product ID:</label>
+            <label>Product ID: &nbsp;</label>
             <span>{{ quote.questionsid }}</span>
         </div>
         <div class="detail-item">
-            <label>Question:</label>
+            <label>Question:&nbsp; </label>
             <span>{{ quote.question }}</span>
         </div>
         <div class="detail-item">
-            <label>Answer:</label>
+            <label>Answer:&nbsp; </label>
             <span>{{ quote.answer }}</span>
         </div>
        
         <!-- Add other properties as needed -->
     </div>
-    <p class="confirm-message">Are you sure you want to delete it?</p>
+    <p class="confirm-message text-center">Are you sure you want to delete it?</p>
     <button class="delete-button" (click)="confirmDelete()">Delete</button>
   </div>
   </div>

@@ -28,7 +28,7 @@ export class DashProductsComponent implements OnInit, AfterViewInit {
   private roles: string[] = [];
   isLoggedIn = false;
   filteredProducts: Products[] = [];
-  pageSize = 8; // Number of products per page
+  pageSize = 5; // Number of products per page
   currentPage = 1; // Current page
   totalPages = 0; // Total number of pages
   pages: number[] = []; // Array of page numbers
@@ -221,8 +221,8 @@ export class DashProductsComponent implements OnInit, AfterViewInit {
           {
             label: 'Number of Products By Categorie',
             data: values,
-            backgroundColor: 'rgba(54, 162, 235, 0.5)',
-            borderColor: 'rgba(54, 162, 235, 1)',
+            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+            borderColor: 'rgba(255, 255, 255, 1)',
             borderWidth: 1,
           },
         ],
@@ -286,8 +286,8 @@ export class DashProductsComponent implements OnInit, AfterViewInit {
           {
             label: 'totale prices(tnd) for each categorie',
             data: values,
-            backgroundColor: 'rgba(54, 162, 235, 0.5)',
-            borderColor: 'rgba(54, 162, 235, 1)',
+            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+            borderColor: 'rgba(255, 255, 255, 1)',
             borderWidth: 1,
           },
         ],

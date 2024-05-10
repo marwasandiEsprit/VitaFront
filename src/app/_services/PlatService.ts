@@ -28,4 +28,8 @@ export class PlatService {
   deletePlat(id : number) :Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/delete/${id}`);
   }
+
+  getPlatesPerUser(): Observable<{ [key: number]: number }> {
+    return this.http.get<{ [key: number]: number }>(`${this.apiUrl}/platesbyusers`);
+  }
 }

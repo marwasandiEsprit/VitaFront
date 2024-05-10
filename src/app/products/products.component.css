@@ -1,3 +1,93 @@
+:root {
+  --main-bg-color: #9d3700;
+  --main-text-color: #009d63;
+  --second-text-color: #bbbec5;
+  --second-bg-color: #c1efde;
+}
+
+.primary-text {
+  color: var(--main-text-color);
+}
+
+.second-text {
+  color: var(--second-text-color);
+}
+
+.primary-bg {
+  background-color: var(--main-bg-color);
+}
+
+.secondary-bg {
+  background-color: var(--second-bg-color);
+}
+
+.rounded-full {
+  border-radius: 100%;
+}
+
+#wrapper {
+  overflow-x: hidden;
+  position: relative;
+  background: linear-gradient(115deg, #ffab87 57%, #ffab87 50%);
+}
+
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+#menu-toggle {
+  cursor: pointer;
+}
+
+.list-group-item {
+  border: none;
+  padding: 20px 30px;
+}
+
+.list-group-item.active {
+  background-color: transparent;
+  color: var(--main-text-color);
+  font-weight: bold;
+  border: none;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
 .App {
   font-family: sans-serif;
   text-align: center;
@@ -8,21 +98,7 @@
 
   justify-content: space-between;
 }
-.mainSection {
-  margin-bottom: -3.2% !important;
-  display: flex;
 
-  justify-content: space-around;
-  align-items: center;
-
-  background: Orgb(0, 101, 219);
-  background: linear-gradient(
-    45deg,
-    rgba(0, 0, 0, 0.9) 50%,
-    rgba(255, 193, 71, 1) 50%
-  );
-  min-height: 700px !important;
-}
 .contentBox {
   margin-left: 2%;
   width: 40%;
@@ -43,11 +119,13 @@
 
 
 .form-container {
-  max-width: 400px;
+ 
   margin: 0 auto;
+  width: 80% !important;
 }
 
 .form {
+  
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;

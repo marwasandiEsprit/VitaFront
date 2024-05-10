@@ -6,17 +6,20 @@
     >
       <i class="fas fa-user-secret me-2"></i>Admin
     </div>
-    <div class="list-group list-group-flush my-3" *ngIf="isLoggedIn && isUserRoleAdmin()">
+    <div
+      class="list-group list-group-flush my-3"
+      *ngIf="isLoggedIn && isUserRoleAdmin()"
+    >
       <a
         href="/listUser"
         class="list-group-item list-group-item-action bg-transparent second-text active"
         ><i class="fas fa-user me-2"></i>Users</a
       >
       <a
-      href="userStatistics"
-      class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
-      ><i class="fas fa-area-chart"></i> Statistics</a
-    >
+        href="userStatistics"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+        ><i class="fas fa-area-chart"></i> Statistics</a
+      >
       <a
         routerLink="/dashProds"
         class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
@@ -38,15 +41,15 @@
         ><i class="fas fa-paperclip me-2"></i>Reports</a
       >
       <a
-      href="allquotes"
-      class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
-      ><i class="fas fa-quote-left"></i> Quotes</a
-    >
-    <a
-    href="allquestionAd"
-    class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
-    ><i class="fas fa-question-circle"></i> Q&A</a
-  >
+        href="allquotes"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+        ><i class="fas fa-quote-left"></i> Quotes</a
+      >
+      <a
+        href="allquestionAd"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+        ><i class="fas fa-question-circle"></i> Q&A</a
+      >
       <a
         href="#"
         class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
@@ -77,15 +80,15 @@
   <!-- /#sidebar-wrapper -->
 
   <!-- Page Content -->
-  <div id="page-content-wrapper">
+  <div id="page-content-wrapper ">
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
       <div class="d-flex align-items-center">
         <i
-          class="fas fa-align-left primary-text fs-4 me-3"
+          class="fas fa-align-left primary-text text-white fs-4 me-3"
           (click)="addToggle()"
           id="menu-toggle"
         ></i>
-        <h2 class="fs-2 m-0">Dashboard</h2>
+        <h2 class="fs-2 m-0 text-white">Dashboard</h2>
       </div>
 
       <button
@@ -99,34 +102,17 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle second-text fw-bold"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i class="fas fa-user me-2"></i>John Doe
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
     </nav>
 
-    <div class="container-fluid px-4"></div>
-    <div class="container-fluid px-4">
+    <div class="container-fluid">
+      <div class="text-white d-flex align-items-center">
+        <p class="me-2 fs-5">To Check The Total Consultations per Psychiatrist Click Here:</p>
+        <button class="mb-2" [routerLink]="['/statspsyconsultation']">HERE</button>
+      </div>
+      
       <input
         type="text"
+        class="w-75"
         [(ngModel)]="filterTerm"
         placeholder="Filter by name"
         (input)="applyFilter()"
@@ -134,12 +120,8 @@
 
       <!-- Button to clear the filter -->
       <button (click)="clearFilter()">Clear Filter</button>
-      <td>
-        <button [routerLink]="['/statspsyconsultation']">statspsy</button>
-      </td>
-
       <!-- User list display -->
-      <table class="table bg-white rounded shadow-sm table-hover">
+      <table class="table bg-white shadow-sm table-hover">
         <thead>
           <tr>
             <th scope="col">Nom</th>

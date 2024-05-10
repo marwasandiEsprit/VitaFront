@@ -27,14 +27,8 @@
 
 #wrapper {
   overflow-x: hidden;
-  background-image: linear-gradient(
-    to right,
-    #baf3d7,
-    #c2f5de,
-    #cbf7e4,
-    #d4f8ea,
-    #ddfaef
-  );
+  position: relative;
+  background: linear-gradient(115deg, #ffab87 57%, #ffab87 50%);
 }
 
 #sidebar-wrapper {

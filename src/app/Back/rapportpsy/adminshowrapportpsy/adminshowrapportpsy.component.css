@@ -27,7 +27,8 @@
 
 #wrapper {
   overflow-x: hidden;
-  background-image: linear-gradient(to right, #baf3d7, #c2f5de, #cbf7e4, #d4f8ea, #ddfaef);
+  position: relative;
+  background: linear-gradient(115deg, #ffab87 57%, #ffab87 50%);
 }
 
 #sidebar-wrapper {
@@ -84,31 +85,38 @@
   }
 }
 
-.rapport-details {
-  border: 1px solid #dddddd;
-  border-radius: 5px;
+/* Styles for Rapport Details */
+/* Styles for Rapport Details */
+/* .rapport-details {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+  max-width: 400px;
+}
+
+.rapport-details:hover {
+  transform: translateY(-5px);
 }
 
 .rapport-details h2 {
-  margin-top: 0;
-  font-size: 24px;
   color: #333333;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-.rapport-details p {
+.rapport-info p {
+  color: #666666;
   margin-bottom: 10px;
-  font-size: 16px;
 }
 
-.rapport-details strong {
+.rapport-info p strong {
   font-weight: bold;
 }
 
-.rapport-details .username {
-  color: #007bff;
+.username {
   font-weight: bold;
 }
 
@@ -116,11 +124,72 @@
   display: inline-block;
   padding: 10px 20px;
   background-color: #007bff;
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .router-link-button:hover {
-  background-color: red;
+  background-color: #0056b3;
+} */
+/* Styles for Rapport Details */
+.rapport-details {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+  max-width: 90%;
+margin-left: 5% !important;
+}
+
+.rapport-details:hover {
+  transform: translateY(-5px);
+}
+
+.rapport-details h2 {
+  color: #333333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table td,
+table th {
+  padding: 10px;
+  border: 1px solid #dddddd;
+}
+
+table th {
+  background-color: #f0f0f0;
+  text-align: left;
+  font-weight: bold;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.router-link-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.router-link-button:hover {
+  background-color: #0056b3;
 }

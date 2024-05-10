@@ -49,8 +49,8 @@ export class StatspsyconsultationComponent {
             {
               label: 'Total Consultations',
               data: data,
-              backgroundColor: 'rgba(54, 162, 235, 0.5)',
-              borderColor: 'rgba(54, 162, 235, 1)',
+              backgroundColor: 'rgba(255,255,255, 0.5)',
+              borderColor: 'rgba(255,255,255, 1)',
               borderWidth: 1
             }
           ]
