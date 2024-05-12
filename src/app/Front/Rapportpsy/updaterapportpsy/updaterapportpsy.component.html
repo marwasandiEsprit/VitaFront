@@ -1,6 +1,14 @@
 <div class="container">
-  
-    <h2>Update Rapport Psy </h2>
+  <div class="row">
+  <div class="col-3">
+    <div class="sidebar text-center">
+      <h2 class="text-white">Consulations Per Client</h2>
+      <a class="styled-button mb-3" [routerLink]="'/rap'">Rapports</a>
+      <a class="styled-button" [routerLink]="'/consultationpsy'">consultations</a>
+    </div>
+  </div>
+  <div class="col-9 shadow">
+    <h2 class="mt-5">Update Rapport Psy </h2>
     <form [formGroup]="rapportPsyForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="description">Description</label>
@@ -29,4 +37,4 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
-  <button routerLink="/rap" class="router-link-button">back</button>
+  </div>

@@ -1,9 +1,36 @@
-<div *ngIf="rapportPsy" class="rapport-details">
-  <h2>Rapport Psy Details</h2>
-  <p><strong>ID:</strong> {{ rapportPsy.idRapportPsy }}</p>
-  <p><strong>Description:</strong> {{ rapportPsy.description }}</p>
-  <p><strong>Date:</strong> {{ rapportPsy.dateRappPs | date }}</p>
-  <p><strong>Psychiatrist:</strong> <span class="username">{{ rapportPsy.psychiatrist.username }} {{ rapportPsy.psychiatrist.prenom }}</span></p>
-  <p><strong>Clients:</strong> <span class="username">{{ rapportPsy.clients.username }} {{ rapportPsy.clients.prenom }}</span></p>
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-3">
+      <div class="sidebar text-center">
+        <h2 class="text-white">Consulations Per Client</h2>
+        <a class="styled-button mb-3" [routerLink]="'/rap'">Rapports</a>
+        <a class="styled-button" [routerLink]="'/consultationpsy'"
+          >consultations</a
+        >
+      </div>
+    </div>
+    <div class="col-9">
+      <div *ngIf="rapportPsy" class="rapport-details">
+        <h2>Rapport Psy Details</h2>
+  
+        <p><strong>Date:</strong> {{ rapportPsy.dateRappPs | date }}</p>
+        <p>
+          <strong>Psychiatrist:</strong>
+          <span class="username"
+            >{{ rapportPsy.psychiatrist.username }}
+            {{ rapportPsy.psychiatrist.prenom }}</span
+          >
+        </p>
+        <p>
+          <strong>Clients:</strong>
+          <span class="username"
+            >{{ rapportPsy.clients.username }}
+            {{ rapportPsy.clients.prenom }}</span
+          >
+        </p>
+        <p><strong>Description:</strong> {{ rapportPsy.description }}</p>
+
+      </div>
+    </div>
+  </div>
 </div>
-<button routerLink="/rap" class="router-link-button">back</button>

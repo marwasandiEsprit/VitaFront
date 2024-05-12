@@ -1,29 +1,53 @@
-<div class="main">
-<div class="container">
-  <h1 class="cart-heading">Shopping Cart</h1>
+<div class="main mb-5">
+  <div class="container">
+    <h1 class="cart-heading">Shopping Cart</h1>
 
-  <div *ngIf="cartItems.length === 0" class="empty-cart">
-    <p>Your cart is empty.</p>
-  </div>
-  <div *ngFor="let item of cartItems" class="cart-item">
-    <div class="item-details">
-      <p class="item-name">{{ item.products }}</p>
-      <p class="item-price">Price: {{ item.total }} TND</p>
-      <p class="item-quantity">Quantity: {{ item.quantity }}</p>
+    <!-- Modal Trigger Button -->
+    
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add your payment credentials </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-4">
+            Add You Card Number <i class="fa fa-credit-card-alt" aria-hidden="true"></i> :
+          </div>
+            <div id="card-element"></div>
+
+            <div *ngIf="cartItems.length > 0" class="cart-total">
+              <hr>
+              <p>Total: {{ total }} TND</p>
+              <button class="btn btn-success" (click)="initiatePayment(currentUser)">Initiate Payment</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="item-actions">
-      <!-- Call removeItemFromCart() method when button is clicked -->
-      <button class="remove-button" (click)="removeItemFromCart(item)">Remove</button>
+
+    <!-- Cart Items -->
+    <div *ngIf="cartItems.length === 0" class="empty-cart">
+      <p>Your cart is empty.</p>
     </div>
-  </div>
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <div class="item-details">
+        <p class="item-name">{{ item.products }}</p>
+        <p class="item-price">Price: {{ item.total }} TND</p>
+        <p class="item-quantity">Quantity: {{ item.quantity }}</p>
 
-  <div *ngIf="cartItems.length > 0" class="cart-total">
-    <hr>
-    <p>Total: {{ total }} TND</p>
-    <button (click)=" initiatePayment(currentUser)">Initiate Payment</button>
-
+      </div>
+      <div class="item-actions">
+        <!-- Call removeItemFromCart() method when button is clicked -->
+        <button class="remove-button" (click)="removeItemFromCart(item)">Remove</button>
+      </div>
+    </div>
+    <h2 class="text-white">Total: {{ total }} TND</h2>
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      BUY
+    </button>
   </div>
-  <div id="card-element"></div>
-  
-</div>
 </div>

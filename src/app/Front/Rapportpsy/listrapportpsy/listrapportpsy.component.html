@@ -1,6 +1,6 @@
 <div class="container">
   <div class="sidebar text-center">
-    <h2>Rapports</h2>
+    <h2 class="text-white">Rapports</h2>
     <a class="styled-button" [routerLink]="'/consultationpsy'">consultations</a>
    
   </div>
@@ -30,7 +30,7 @@
                 <button class="action-button" [routerLink]="['/editrapport', rapport.idRapportPsy]">Modify</button>
                 <button class="action-button" [routerLink]="['/showrap', rapport.idRapportPsy]">Show</button>
                 <button class="action-button" [routerLink]="['/deleter', rapport.idRapportPsy]">Delete</button>
-                <button class="action-button" (click)="generatePdf(rapport.idRapportPsy)">Export PDF</button>
+                <button class="action-button mt-2" (click)="generatePdf(rapport.idRapportPsy)">Export PDF</button>
               </div>
             </div>
           </div>

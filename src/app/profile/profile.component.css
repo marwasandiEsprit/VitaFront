@@ -39,3 +39,20 @@
   font-weight: bold;
   padding: 0.5rem 1rem;
 }
+
+.profilese{
+  margin-bottom: 10% !important;
+  
+}
+
+.profile-background{
+  background: rgb(24, 42, 63); /* Fallback color */
+  background: linear-gradient(
+    40deg,
+   /* 25% position with rgba for the second color */
+    rgba(255, 255, 255, 0.5) 20%, /* 50% position with rgba for the third color */
+    rgb(239, 108, 60) 55%, /* 75% position with rgba for the fourth color */
+    rgb(239, 108, 60) 90% /* 100% position with rgba for the fifth color */
+  );
+  min-height: 500px;
+}

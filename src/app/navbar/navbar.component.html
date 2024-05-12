@@ -13,7 +13,7 @@
           <li class="nav-item" *ngIf=" !isUserRoleAdmin() && !isUserRolePsy()">
             <a *ngIf="isLoggedIn" class="nav-link active" routerLink="CalculCalories"  routerLinkActive="active-link">Plats</a>
           </li>
-          <li class="nav-item" *ngIf=" !isUserRoleAdmin()">
+          <li class="nav-item" *ngIf=" !isUserRoleAdmin() && !isUserRolePsy()">
             <a *ngIf="isLoggedIn" class="nav-link active" routerLink="chat"  routerLinkActive="active-link" >Discussions</a>
           </li>
           <li class="nav-item" *ngIf=" !isUserRoleAdmin()">

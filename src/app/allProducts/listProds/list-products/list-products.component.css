@@ -17,8 +17,9 @@
   background: Orgb(0, 101, 219);
   background: linear-gradient(
     45deg,
-    rgba(0, 0, 0, 0.9) 50%,
-    rgba(255, 193, 71, 1) 50%
+    rgba(61, 62, 62, 0.9) 40%,
+    rgba(61, 62, 62, 0.9) 10%,
+    rgba(255,72,0, 1) 50%
   );
   min-height: 500px;
 }
@@ -197,7 +198,7 @@ margin-bottom: 10% !important;
 .pagination-button {
 padding: 10px 20px;
 margin: 0 5px;
-background-color: #007bff;
+background-color: #ff3700;
 color: #fff;
 border: none;
 border-radius: 5px;
@@ -303,3 +304,8 @@ z-index: 1000;
 
 }
 
+.custom-btn {
+  background-color: rgb(255, 64, 0);
+  border-color: rgb(255, 64, 0);
+  color: white; /* Text color */
+}

@@ -2,7 +2,9 @@
 body {
   font-family: Arial, sans-serif;
 }
-
+.calc{
+  margin-bottom: 10% !important;
+}
 .card {
   margin-bottom: 20px;
 }

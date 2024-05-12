@@ -1,0 +1,105 @@
+  
+.sidebar {
+    width: 250px;
+    background-color: rgba(62, 61, 61, 0.836);
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+  top: 7%;
+  }
+  
+  .styled-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+    padding-left: 25% !important;
+  }
+  
+  .title {
+    margin-bottom: 20px;
+  }
+  
+  .consultation-table {
+    width: 100%;
+    border-collapse: collapse;
+   
+  }
+  
+  .consultation-table th,
+  .consultation-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .d-flex {
+    display: flex;
+  }
+  
+  .justify-content-center {
+    justify-content: center;
+  }
+  
+  .consultation-item {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .action-button {
+    margin-right: 5px;
+  }
+  
+  .no-consultation-message {
+    text-align: center;
+  }
+  
+  .addrap{
+    margin-bottom: 10% !important;
+  }
+
+  .custom-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+  }
+  
+  .btn-primary {
+    background-color: #009d63;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #008151;
+  }
+  
+  .text-danger {
+    color: #dc3545;
+  }
+  
+  .form-container {
+    margin-top: 30px;
+  }

@@ -1,27 +1,55 @@
-<div class="container mt-5" *ngIf="user">
+<div class="backpr">
+<div class="container mt-5 profilese" *ngIf="user">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <div class="card profile-card shadow">
-        <div class="card-body text-center">
-          <div class="profile-image mb-4">
-            <img src="https://static-00.iconduck.com/assets.00/user-icon-2048x2048-ihoxz4vq.png" alt="Profile" class="rounded-circle img-fluid">
+      <div class="card profile-card shadow profile-background">
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <div class="profile-image text-center py-4">
+              <img src="https://static-00.iconduck.com/assets.00/user-icon-2048x2048-ihoxz4vq.png" alt="Profile" class="rounded-circle img-fluid profile-image">
+            </div>
           </div>
-          <h2 class="mt-3 profile-username text-primary">{{ user.username }}</h2>
-          <p class="text-muted profile-email">{{ user.email }}</p>
-          <ul class="list-unstyled profile-roles-list" *ngIf="user.roles.length > 0">
-            <li *ngFor="let role of user.roles" class="profile-roles-item badge bg-primary me-1">{{ role.name }}</li>
-          </ul>
-          <p class="profile-text">Description: {{ user.desctiption }}</p>
-          <p class="profile-text">Member since: {{ user.creationDate }}</p>
-          <p class="profile-text">Gender: {{ user.gender }}</p>
-          <p class="profile-text">Age: {{ user.age }}</p>
-          <div class="mt-4">
-            <button type="button" class="btn btn-sm btn-primary btn-edit-profile" routerLink="/editprofile">
-              Edit Profile
-            </button>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h2 class="mt-3 profile-username text-danger">{{ user.username }}</h2>
+              <p class="text-muted profile-email">{{ user.email }}</p>
+              <hr>
+              <p class="profile-text">Description:</p>
+              <p class="profile-description">{{ user.description }}</p>
+              <hr>
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="profile-text">Member since:</p>
+                  <p class="profile-info">{{ user.creationDate }}</p>
+                </div>
+                <div class="col-md-6">
+                  <p class="profile-text">Gender:</p>
+                  <p class="profile-info">{{ user.gender }}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="profile-text">Age:</p>
+                  <p class="profile-info">{{ user.age }}</p>
+                </div>
+                <div class="col-md-6">
+                  <p class="profile-text">Roles:</p>
+                  <ul class="list-unstyled">
+                    <li *ngFor="let role of user.roles" class="profile-roles-item badge bg-danger me-1">{{ role.name }}</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mt-4">
+                <button type="button" class="btn btn-sm btn-primary btn-edit-profile" routerLink="/editprofile">
+                  Edit Profile
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>

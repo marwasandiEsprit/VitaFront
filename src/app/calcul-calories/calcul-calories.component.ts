@@ -47,6 +47,7 @@ export class CalculCaloriesComponent implements OnInit {
   conseilAdapted = new PlatConseils() ;
   conseilEmpty = new PlatConseils() ;
   platsQuantites = new PlatsQauntites();
+  private roles: string[] = [];
   yourIMC : number = 0 ;
   conseils: PlatConseils[] = [
     {  taille: Taille.Maigre, maxQuantite: null, minQauntite: null, conseil: ''},
@@ -69,6 +70,11 @@ export class CalculCaloriesComponent implements OnInit {
     this.user = this.storageService.getUser();
     console.log(this.user);
     this.IsNutrioniste();
+
+    const users = this.storageService.getUser();
+
+    this.roles = users.roles;
+
   }
   IsNutrioniste() {
 
@@ -78,6 +84,9 @@ export class CalculCaloriesComponent implements OnInit {
     }
   }
 
+  isUserRoleNut(): boolean {
+    return this.roles.includes('ROLE_NUTRITOINISTE');
+  }
   GiveAdvice(plat: any) {
     plat.advice = true;
 this.advice = 1 ;

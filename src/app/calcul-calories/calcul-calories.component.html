@@ -1,4 +1,4 @@
-<div class="container" id="plat-container">
+<div class="container calc" id="plat-container">
   <div class="row">
     <div class="col-md-4" *ngFor="let plat of plats; let i = index">
       <div class="card text-center mb-3">
@@ -6,7 +6,7 @@
           <h5 class="card-title">{{plat.name}}</h5>
           <p class="card-text">{{plat.nbCalories}} calories dans {{plat.quantity}} Gramme </p>
           <div class="icons-container">
-            <i class="fa fa-trash card-icon" aria-hidden="true" (click)="deletePlat(plat.idPlat)"></i>
+            <i *ngIf="isUserRoleNut()" class="fa fa-trash card-icon" aria-hidden="true" (click)="deletePlat(plat.idPlat)"></i>
             <i *ngIf="!plat.advice" class="fa fa-info card-icon" aria-hidden="true" (click)="GiveAdvice(plat)"></i>
 
             <i *ngIf="plat.advice"class="fa fa-times-circle" aria-hidden="true" (click)="CloseAdvice(plat)"></i>
@@ -88,7 +88,7 @@
   <button *ngIf="!calcul1" class="btn btn-success mt-3 add-button" (click)="OpenCalcullator()">Calculer Vos Calories Cosnommées Aujourd'hui</button>
 </div>
 
-  <div class="row mt-3" *ngIf="calcul">
+  <div class="row mt-3 " *ngIf="calcul">
     <div class="col-md-12 calculator-container">
       <div class="calcullclos">
         <h2>Calculateur de les calories consomées aujourd'hui : </h2>

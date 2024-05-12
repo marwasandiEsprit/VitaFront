@@ -3,8 +3,8 @@
   background: Orgb(0, 101, 219);
   background: linear-gradient(
     45deg,
-    rgba(118, 250, 239, 0.9) 50%,
-    rgb(235, 121, 121) 50%
+    rgba(62, 62, 62, 0.9) 50%,
+    rgb(239, 108, 60) 50%
   );
   min-height: 550px;
 }
